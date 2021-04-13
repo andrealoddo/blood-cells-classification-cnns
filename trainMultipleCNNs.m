@@ -11,17 +11,17 @@ if ispc
     rootPath = 'C:\Users\loand\Pictures\ImmaginiLavoro\Medical\Blood\C-NMC';
 else
     % WS dataset path
-    rootPath = 'todo';
+    rootPath = '/home/server/Datasets/C-NMC/';
 end
 
 modelsPath = 'models';
 cmPath = 'cm';
 
-trainingPaths = { fullfile(rootPath, 'C-NMC_training_data\fold_0'), ...
-    fullfile(rootPath, 'C-NMC_training_data\fold_1'), ...
-    fullfile(rootPath, 'C-NMC_training_data\fold_2')};
+trainingPaths = { fullfile(rootPath, 'C-NMC_training_data', 'fold_0'), ...
+    fullfile(rootPath, 'C-NMC_training_data', 'fold_1'), ...
+    fullfile(rootPath, 'C-NMC_training_data', 'fold_2') };
 testPath = fullfile( rootPath, 'C-NMC_test_prelim_phase_data' );
-testLabelsPath = fullfile( rootPath, 'C-NMC_test_prelim_phase_data\C-NMC_test_prelim_phase_data_labels.csv' );
+testLabelsPath = fullfile( rootPath, 'C-NMC_test_prelim_phase_data', 'C-NMC_test_prelim_phase_data_labels.csv' );
 
 % Test set preparation
 testImgs = dir(fullfile( testPath, '*.bmp') );
@@ -53,7 +53,7 @@ imdsTrain = overSampling(imdsTrain);
 
 %----------------------- TESTING WITH CNNS -----------------------
 for i = 1:numel(cnns)
-    
+
     % Load the network
     net = cnns{i};
     netName = cnnNames{i};
@@ -64,7 +64,7 @@ for i = 1:numel(cnns)
     elseif( isa( cnns{i}, 'DAGNetwork' ) )
         lgraph = layerGraph(net);
         [learnableLayer, classLayer] = findLayersToReplace(net);
-        
+
         newLearnableLayer = fullyConnectedLayer(classNumber, ...
             'Name', 'new_fc', ...
             'WeightLearnRateFactor', 10, ...
@@ -72,20 +72,20 @@ for i = 1:numel(cnns)
         newClassLayer = classificationLayer('Name','new_classoutput');
         lgraph = replaceLayer(lgraph, learnableLayer, newLearnableLayer);
         lgraph = replaceLayer(lgraph, classLayer, newClassLayer);
-        
+
     else
         fprintf('ERROR: unrecognized network architecture');
     end
-    
+
     % Preprocess images (resize for network's input requirements)
     inputSize = net.Layers(1).InputSize(:, 1:2);
-    imdsTrain.ReadFcn = @(filename)resizeIm(filename, inputSize); 
-    imdsValid.ReadFcn = @(filename)resizeIm(filename, inputSize); 
-    imdsTest.ReadFcn = @(filename)resizeIm(filename, inputSize); 
-    
+    imdsTrain.ReadFcn = @(filename)resizeIm(filename, inputSize);
+    imdsValid.ReadFcn = @(filename)resizeIm(filename, inputSize);
+    imdsTest.ReadFcn = @(filename)resizeIm(filename, inputSize);
+
     % Training options
-    miniBatchSize = 64;
-    maxEpochs = 1;
+    miniBatchSize = 32;
+    maxEpochs = 100;
     valFrequency = max(floor(numel(imdsTest.Files)/miniBatchSize)*10,1);
 
     options = trainingOptions('adam', ...
@@ -95,22 +95,23 @@ for i = 1:numel(cnns)
         'Shuffle', 'every-epoch', ...
         'ValidationData', imdsValid, ...
         'ValidationFrequency', valFrequency, ...
-        'Verbose', false, ...
+        'Verbose', true, ...
         'Plots', 'training-progress');
 
     % -------------------    TRAIN NETWORK   ------------------------------
     trainedNet = trainNetwork(imdsTrain, layers, options);
-    
+
     % -------------------    PREDICTIONS   ------------------------------
     preds = classify(trainedNet, imdsTest);
-    accuracy = nnz(preds == imdsTest.Labels)/numel(preds)
+    accuracy = nnz(preds == imdsTest.Labels)/numel(preds);
+    fprintf( strcat(netName, ' ACCURACY: ', accuracy) );
 
     % -------------------    CONFUSION MATRIX   ---------------------------
     chart = confusionchart(preds, imdsTest.Labels);
-    
+
     % -------------------    SAVE   ---------------------------
     netName = strcat( netName, '__EP', num2str(maxEpochs), '__MBS', num2str(miniBatchSize) );
     save(fullfile(modelsPath, netName), "trainedNet");
     save(fullfile(cmPath, netName), "chart");
-        
+
 end

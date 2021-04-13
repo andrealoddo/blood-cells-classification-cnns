@@ -1,0 +1,1 @@
+nohup matlab -nodisplay -nosplash -nodesktop -batch trainMultipleCNNs > nohup/nohup.out < /dev/null &

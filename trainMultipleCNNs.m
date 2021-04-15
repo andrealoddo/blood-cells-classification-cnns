@@ -59,8 +59,8 @@ for i = 1:numel(cnns)
     net = cnns{i};
     netName = cnnNames{i};
     netCheckPath = fullfile(checkPath, netName);
-    if exist( checkPath ) ~= 7
-        mkdir(checkPath)
+    if exist( netCheckPath ) ~= 7
+        mkdir(netCheckPath)
     end
     if( isa( cnns{i}, 'SeriesNetwork' ) )
         layers = net.Layers;
@@ -102,7 +102,7 @@ for i = 1:numel(cnns)
         'ValidationData', imdsValid, ...
         'ValidationFrequency', valFrequency, ...
         'Verbose', true, ...
-        'CheckpointPath', checkPath, ...
+        'CheckpointPath', netCheckPath, ...
         'Plots', 'training-progress');
 
     % -------------------    TRAIN NETWORK   ------------------------------

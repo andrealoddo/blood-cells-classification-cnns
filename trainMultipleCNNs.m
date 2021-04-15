@@ -16,6 +16,7 @@ end
 
 modelsPath = 'models';
 cmPath = 'cm';
+checkPath = 'checkpoints';
 
 trainingPaths = { fullfile(rootPath, 'C-NMC_training_data', 'fold_0'), ...
     fullfile(rootPath, 'C-NMC_training_data', 'fold_1'), ...
@@ -57,22 +58,26 @@ for i = 1:numel(cnns)
     % Load the network
     net = cnns{i};
     netName = cnnNames{i};
+    netCheckPath = fullfile(checkPath, netName);
+    if exist( checkPath ) ~= 7
+        mkdir(checkPath)
+    end
     if( isa( cnns{i}, 'SeriesNetwork' ) )
         layers = net.Layers;
         layers(end - 2) = fullyConnectedLayer(classNumber);
         layers(end) = classificationLayer();
+        netToTrain = layers;
     elseif( isa( cnns{i}, 'DAGNetwork' ) )
         lgraph = layerGraph(net);
-        [learnableLayer, classLayer] = findLayersToReplace(net);
-
+        [learnableLayer, classLayer] = findLayersToReplace(lgraph);
         newLearnableLayer = fullyConnectedLayer(classNumber, ...
             'Name', 'new_fc', ...
             'WeightLearnRateFactor', 10, ...
             'BiasLearnRateFactor', 10);
         newClassLayer = classificationLayer('Name','new_classoutput');
-        lgraph = replaceLayer(lgraph, learnableLayer, newLearnableLayer);
-        lgraph = replaceLayer(lgraph, classLayer, newClassLayer);
-
+        lgraph = replaceLayer(lgraph, learnableLayer.Name, newLearnableLayer);
+        lgraph = replaceLayer(lgraph, classLayer.Name, newClassLayer);
+        netToTrain = lgraph;
     else
         fprintf('ERROR: unrecognized network architecture');
     end
@@ -85,27 +90,28 @@ for i = 1:numel(cnns)
 
     % Training options
     miniBatchSize = 32;
-    maxEpochs = 100;
+    maxEpochs = 50;
     valFrequency = max(floor(numel(imdsTest.Files)/miniBatchSize)*10,1);
 
     options = trainingOptions('adam', ...
         'MiniBatchSize', miniBatchSize, ...
         'MaxEpochs', maxEpochs, ...
         'InitialLearnRate', 1e-4, ...
-        'L2Regularization', 1e-2, ...
+        'LearnRateSchedule', 'piecewise', ...
         'Shuffle', 'every-epoch', ...
         'ValidationData', imdsValid, ...
         'ValidationFrequency', valFrequency, ...
         'Verbose', true, ...
+        'CheckpointPath', checkPath, ...
         'Plots', 'training-progress');
 
     % -------------------    TRAIN NETWORK   ------------------------------
-    trainedNet = trainNetwork(imdsTrain, layers, options);
+    trainedNet = trainNetwork(imdsTrain, netToTrain, options);
 
     % -------------------    PREDICTIONS   ------------------------------
     preds = classify(trainedNet, imdsTest);
     accuracy = nnz(preds == imdsTest.Labels)/numel(preds);
-    fprintf( strcat(netName, ' ACCURACY: ', accuracy) );
+    fprintf( strcat(netName, ' ACCURACY: ', num2str(accuracy)) );
 
     % -------------------    CONFUSION MATRIX   ---------------------------
     chart = confusionchart(preds, imdsTest.Labels);

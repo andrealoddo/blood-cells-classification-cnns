@@ -28,6 +28,11 @@ function ind = randReplicateFiles(files,numDesired)
         ind = 1:numDesired;
     else
         n = numel(files);
-        ind = [1:n randi(n,1,numDesired-n)];
+        ind = [];
+        prop = floor(numDesired/n);
+        for i = 1:prop
+            ind = [ind 1:n];
+        end
+        ind = [ind randperm(n,numDesired-(n*prop))];
     end
 end

@@ -51,7 +51,6 @@ imdsTest.Labels = testLabels;
 % Perform training set oversampling to avoid class imbalance
 imdsTrain = overSampling(imdsTrain);
 
-
 %----------------------- TESTING WITH CNNS -----------------------
 for i = 1:numel(cnns)
 

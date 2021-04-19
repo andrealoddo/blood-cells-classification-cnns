@@ -1,10 +1,14 @@
-function [imds] = overSampling(imds)
+function imds = overSampling(imds)
     %Oversamples the image data which belongs to minor classes.
 
-    % Extract files and labels information in training dataset
-    files = imds.Files;
-    labels = imds.Labels;
-
+    if isa(imds,'matlab.io.datastore.ImageDatastore')
+        % Extract files and labels information in training dataset
+        files = imds.Files;
+        labels = imds.Labels;
+    else
+        labels = imds;
+    end
+    
     %convert categorical labels into numerical ones
     [G,~] = findgroups(labels);
 
@@ -13,17 +17,22 @@ function [imds] = overSampling(imds)
 
     % Calculate the number of images comprising the majority class.
     desiredNumObservationsPerClass = max(numObservations);
-
+    
+    orig_ind = (1:numel(labels))';
     % Use splitandapply to random oversample the minor class
-    ind = splitapply(@(x){randReplicateFiles(x,desiredNumObservationsPerClass)}, imds.Files, G);
+    ind = splitapply(@(x){randReplicateFiles(x,desiredNumObservationsPerClass)}, orig_ind, G);
     ind = horzcat(ind{:});
-    imds.Files = files(ind);
-    imds.Labels = labels(ind);
+    if isa(imds,'matlab.io.datastore.ImageDatastore')
+        imds.Files = files(ind);
+        imds.Labels = labels(ind);
+    else
+        imds = ind;
+    end
 end
 
 %--------------------------------------------------------------------------
 
-function ind = randReplicateFiles(files,numDesired)
+function files = randReplicateFiles(files,numDesired)
     if numel(files) == numDesired
         ind = 1:numDesired;
     else
@@ -35,4 +44,5 @@ function ind = randReplicateFiles(files,numDesired)
         end
         ind = [ind randperm(n,numDesired-(n*prop))];
     end
+    files = files(ind);
 end

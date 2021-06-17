@@ -1,0 +1,40 @@
+\documentclass[12pt,italian]{article}
+\usepackage{graphicx}
+\usepackage{longtable}
+\parskip 0.1in
+\oddsidemargin -1in
+\evensidemargin -1in
+\topmargin -0.5in
+\textwidth 6.8in
+\textheight 9.9in
+\usepackage{fancyhdr}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{amsmath}
+\begin{document}
+\begin{tiny}
+\begin{longtable}{lcccccccccccccccc}
+\toprule
+\multicolumn{16}{c}{Dataset=Raabin selection=\% prepro= none postpro= none, gl= 256} \\ 
+\toprule
+Descriptor & \multicolumn{15}{c}{Classifier} \\ 
+& \multicolumn{5}{c}{kNN} & \multicolumn{5}{c}{SVMRbf} & \multicolumn{5}{c}{RF} \\ 
+& A & P & R & S & F1 & A & P & R & S & F1 & A & P & R & S & F1 \\ 
+\midrule
+& AlexNet & 75.9 & 42.0 & 41.9 & 84.3 & 31.0 & 67.7 &  4.5 & 21.2 & 78.8 &  7.4 & 72.8 & 41.4 & 34.3 & 82.4 & 26.1 \\ 
+& VGGNet-19 & 68.8 & 24.4 & 23.5 & 79.6 & 14.2 & 65.9 &  4.2 & 14.8 & 79.1 &  6.5 & 69.1 & 17.1 & 23.3 & 80.2 & 16.7 \\ 
+& ResNet-50 & 77.5 & 37.0 & 45.6 & 85.5 & 36.0 & 77.7 & 41.6 & 46.5 & 85.6 & 37.6 & 76.0 & 34.2 & 41.9 & 84.4 & 31.0 \\ 
+& GoogleNet & 68.1 & 33.0 & 22.1 & 79.2 & 10.5 & 69.6 & 45.8 & 25.9 & 80.1 & 17.0 & 69.9 & 21.9 & 26.2 & 80.3 & 16.7 \\ 
+& ResNet-18 & 67.4 &  4.8 & 20.3 & 78.7 &  7.7 & 67.7 &  4.5 & 21.2 & 78.8 &  7.4 & 67.7 & 26.9 & 19.5 & 79.5 & 10.4 \\ 
+& ResNet-101 & 79.7 & 63.2 & 51.5 & 87.0 & 44.7 & 68.3 & 37.4 & 22.7 & 79.2 & 10.3 & 76.1 & 60.5 & 42.2 & 84.4 & 31.5 \\ 
+& VGGNet-16 & 76.2 & 45.9 & 42.4 & 84.5 & 32.1 & 74.5 & 45.6 & 38.1 & 83.4 & 27.3 & 75.3 & 24.5 & 40.1 & 83.9 & 27.7 \\ 
+& Inceptionv3 & 83.5 & 60.4 & 60.2 & 89.6 & 54.0 & 74.0 & 60.6 & 37.2 & 83.1 & 31.0 & 80.4 & 59.9 & 52.6 & 87.3 & 47.3 \\ 
+\hline
+& AVG & 74.6 & 38.8 & 38.4 & 83.6 & 28.8 & 70.7 & 30.5 & 28.5 & 81.0 & 18.1 & 73.4 & 35.8 & 35.0 & 82.8 & 25.9 \\ 
+\hline
+\bottomrule
+\end{longtable} 
+
+ \pagebreak 
+\end{tiny} 
+ \end{document}

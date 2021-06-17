@@ -1,0 +1,110 @@
+\documentclass[12pt,italian]{article}
+\usepackage{graphicx}
+\usepackage{longtable}
+\parskip 0.1in
+\oddsidemargin -1in
+\evensidemargin -1in
+\topmargin -0.5in
+\textwidth 6.8in
+\textheight 9.9in
+\usepackage{fancyhdr}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{amsmath}
+\begin{document}
+\begin{tiny}
+\begin{longtable}{lccccccccccccccccccccc}
+\toprule
+\multicolumn{21}{c}{Dataset=ALLIDB2 selection=\% prepro= none postpro= none, gl= 256} \\ 
+\toprule
+Classifier & Descriptor & \multicolumn{20}{c}{Target set} \\ 
+& \multicolumn{5}{c}{img} & \multicolumn{5}{c}{img_tCrop} & \multicolumn{5}{c}{img_wrongCrop} & \multicolumn{5}{c}{img_wrongCrop2} \\ 
+& A & P & R & S & F1 & A & P & R & S & F1 & A & P & R & S & F1 & A & P & R & S & F1 \\ 
+\midrule
+\multirow{}{*}{kNN}& Legendre \\ 
+& Zernike \\ 
+& HARri \\ 
+& LBP18 \\ 
+& Histogram \\ 
+& Correlogram \\ 
+& Haar wavelet \\ 
+& Gabor wavelet \\ 
+& AlexNet & 56.4 & 54.5 & 76.9 & 35.9 & 63.8 \\ 
+& VGGNet-19 & 61.5 & 57.4 & 89.7 & 33.3 & 70.0 \\ 
+& ResNet-50 & 78.2 & 72.9 & 89.7 & 66.7 & 80.5 \\ 
+& GoogleNet & 78.2 & 70.4 & 97.4 & 59.0 & 81.7 \\ 
+& ResNet-18 & 75.6 & 67.2 & 100.0 & 51.3 & 80.4 \\ 
+& ResNet-101 & 78.2 & 71.2 & 94.9 & 61.5 & 81.3 \\ 
+& VGGNet-16 & 53.8 & 55.2 & 41.0 & 66.7 & 47.1 \\ 
+& Inceptionv3 & 66.7 & 65.9 & 69.2 & 64.1 & 67.5 \\ 
+\hline
+& AVG &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 & 34.3 & 32.2 & 41.2 & 27.4 & 35.8 \\ 
+\hline
+\bottomrule
+\end{longtable} 
+
+ \pagebreak 
+\begin{longtable}{lccccccccccccccccccccc}
+\toprule
+\multicolumn{21}{c}{Dataset=ALLIDB2 selection=\% prepro= none postpro= none, gl= 256} \\ 
+\toprule
+Classifier & Descriptor & \multicolumn{20}{c}{Target set} \\ 
+& \multicolumn{5}{c}{img} & \multicolumn{5}{c}{img_tCrop} & \multicolumn{5}{c}{img_wrongCrop} & \multicolumn{5}{c}{img_wrongCrop2} \\ 
+& A & P & R & S & F1 & A & P & R & S & F1 & A & P & R & S & F1 & A & P & R & S & F1 \\ 
+\midrule
+\multirow{}{*}{SVMRbf}& Legendre \\ 
+& Zernike \\ 
+& HARri \\ 
+& LBP18 \\ 
+& Histogram \\ 
+& Correlogram \\ 
+& Haar wavelet \\ 
+& Gabor wavelet \\ 
+& AlexNet & 67.9 & 63.0 & 87.2 & 48.7 & 73.1 \\ 
+& VGGNet-19 & 59.0 & 54.9 & 100.0 & 17.9 & 70.9 \\ 
+& ResNet-50 & 71.8 & 66.7 & 87.2 & 56.4 & 75.6 \\ 
+& GoogleNet & 89.7 & 83.0 & 100.0 & 79.5 & 90.7 \\ 
+& ResNet-18 & 82.1 & 73.6 & 100.0 & 64.1 & 84.8 \\ 
+& ResNet-101 & 70.5 & 63.3 & 97.4 & 43.6 & 76.8 \\ 
+& VGGNet-16 & 48.7 & 47.6 & 25.6 & 71.8 & 33.3 \\ 
+& Inceptionv3 & 75.6 & 88.5 & 59.0 & 92.3 & 70.8 \\ 
+\hline
+& AVG &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 & 35.3 & 33.8 & 41.0 & 29.6 & 36.0 \\ 
+\hline
+\bottomrule
+\end{longtable} 
+
+ \pagebreak 
+\begin{longtable}{lccccccccccccccccccccc}
+\toprule
+\multicolumn{21}{c}{Dataset=ALLIDB2 selection=\% prepro= none postpro= none, gl= 256} \\ 
+\toprule
+Classifier & Descriptor & \multicolumn{20}{c}{Target set} \\ 
+& \multicolumn{5}{c}{img} & \multicolumn{5}{c}{img_tCrop} & \multicolumn{5}{c}{img_wrongCrop} & \multicolumn{5}{c}{img_wrongCrop2} \\ 
+& A & P & R & S & F1 & A & P & R & S & F1 & A & P & R & S & F1 & A & P & R & S & F1 \\ 
+\midrule
+\multirow{}{*}{RF}& Legendre \\ 
+& Zernike \\ 
+& HARri \\ 
+& LBP18 \\ 
+& Histogram \\ 
+& Correlogram \\ 
+& Haar wavelet \\ 
+& Gabor wavelet \\ 
+& AlexNet & 67.9 & 62.5 & 89.7 & 46.2 & 73.7 \\ 
+& VGGNet-19 & 64.1 & 58.5 & 97.4 & 30.8 & 73.1 \\ 
+& ResNet-50 & 80.8 & 76.1 & 89.7 & 71.8 & 82.4 \\ 
+& GoogleNet & 80.8 & 72.2 & 100.0 & 61.5 & 83.9 \\ 
+& ResNet-18 & 78.2 & 69.6 & 100.0 & 56.4 & 82.1 \\ 
+& ResNet-101 & 76.9 & 69.8 & 94.9 & 59.0 & 80.4 \\ 
+& VGGNet-16 & 48.7 & 47.4 & 23.1 & 74.4 & 31.0 \\ 
+& Inceptionv3 & 69.2 & 68.3 & 71.8 & 66.7 & 70.0 \\ 
+\hline
+& AVG &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 & 35.4 & 32.8 & 41.7 & 29.2 & 36.0 \\ 
+\hline
+\bottomrule
+\end{longtable} 
+
+ \pagebreak 
+\end{tiny} 
+ \end{document}

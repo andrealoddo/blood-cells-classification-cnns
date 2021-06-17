@@ -1,6 +1,4 @@
 *.asv
 *.m~
 .DS_Store
-models/*.mat
-checkpoints/*.mat
-*.pdf
+Models/

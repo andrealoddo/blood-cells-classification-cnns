@@ -1,0 +1,79 @@
+\documentclass[12pt,italian]{article}
+\usepackage{graphicx}
+\usepackage{longtable}
+\parskip 0.1in
+\oddsidemargin -1in
+\evensidemargin -1in
+\topmargin -0.5in
+\textwidth 6.8in
+\textheight 9.9in
+\usepackage{fancyhdr}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{amsmath}
+\begin{document}
+\begin{tiny}
+\begin{longtable}{lcccccccccccccccc}
+\toprule
+\multicolumn{16}{c}{Dataset=ALLIDB2 selection=\% prepro= none postpro= undersample, gl= 256} \\ 
+\toprule
+Descriptor & \multicolumn{15}{c}{Classifier} \\ 
+& \multicolumn{5}{c}{kNN} & \multicolumn{5}{c}{SVMRbf} & \multicolumn{5}{c}{RF} \\ 
+& A & P & R & S & F1 & A & P & R & S & F1 & A & P & R & S & F1 \\ 
+\midrule
+& Legendre & 48.7 & 49.4 & 97.4 &  0.0 & 65.5 & 48.7 & 49.4 & 97.4 &  0.0 & 65.5 & 50.0 & 50.0 & 100.0 &  0.0 & 66.7 \\ 
+& Zernike & 35.9 & 41.8 & 71.8 &  0.0 & 52.8 & 44.9 & 47.2 & 87.2 &  2.6 & 61.3 & 51.3 & 50.8 & 82.1 & 20.5 & 62.7 \\ 
+& HARri & 50.0 & 50.0 & 28.2 & 71.8 & 36.1 & 56.4 & 58.6 & 43.6 & 69.2 & 50.0 & 37.2 & 33.3 & 25.6 & 48.7 & 29.0 \\ 
+& LBP18 & 50.0 & 50.0 & 100.0 &  0.0 & 66.7 & 50.0 & 50.0 & 100.0 &  0.0 & 66.7 & 50.0 & 50.0 & 100.0 &  0.0 & 66.7 \\ 
+& Histogram & 20.5 & 28.3 & 38.5 &  2.6 & 32.6 & 21.8 & 30.4 & 43.6 &  0.0 & 35.8 & 50.0 & 50.0 & 100.0 &  0.0 & 66.7 \\ 
+& Correlogram & 50.0 & 50.0 & 84.6 & 15.4 & 62.9 & 56.4 & 60.9 & 35.9 & 76.9 & 45.2 & 57.7 & 54.5 & 92.3 & 23.1 & 68.6 \\ 
+& Haar wavelet & 42.3 & 45.8 & 84.6 &  0.0 & 59.5 & 50.0 & 50.0 & 100.0 &  0.0 & 66.7 & 24.4 & 32.8 & 48.7 &  0.0 & 39.2 \\ 
+& Gabor wavelet & 47.4 & 48.6 & 87.2 &  7.7 & 62.4 & 37.2 & 41.4 & 61.5 & 12.8 & 49.5 & 47.4 & 47.1 & 41.0 & 53.8 & 43.8 \\ 
+& AlexNet \\ 
+& VGGNet-19 \\ 
+& ResNet-50 \\ 
+& GoogleNet \\ 
+& ResNet-18 \\ 
+& ResNet-101 \\ 
+& VGGNet-16 \\ 
+& Inceptionv3 \\ 
+\hline
+& AVG & 21.6 & 22.7 & 37.0 &  6.1 & 27.4 & 22.8 & 24.2 & 35.6 & 10.1 & 27.5 & 23.0 & 23.0 & 36.9 &  9.1 & 27.7 \\ 
+\hline
+\bottomrule
+\end{longtable} 
+
+ \pagebreak 
+\begin{longtable}{lcccccccccccccccc}
+\toprule
+\multicolumn{16}{c}{Dataset=ALLIDB2 selection=\% prepro= none postpro= none, gl= 256} \\ 
+\toprule
+Descriptor & \multicolumn{15}{c}{Classifier} \\ 
+& \multicolumn{5}{c}{kNN} & \multicolumn{5}{c}{SVMRbf} & \multicolumn{5}{c}{RF} \\ 
+& A & P & R & S & F1 & A & P & R & S & F1 & A & P & R & S & F1 \\ 
+\midrule
+& Legendre \\ 
+& Zernike \\ 
+& HARri \\ 
+& LBP18 \\ 
+& Histogram \\ 
+& Correlogram \\ 
+& Haar wavelet \\ 
+& Gabor wavelet \\ 
+& AlexNet \\ 
+& VGGNet-19 \\ 
+& ResNet-50 \\ 
+& GoogleNet \\ 
+& ResNet-18 \\ 
+& ResNet-101 \\ 
+& VGGNet-16 \\ 
+& Inceptionv3 \\ 
+\hline
+& AVG &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 \\ 
+\hline
+\bottomrule
+\end{longtable} 
+
+ \pagebreak 
+\end{tiny} 
+ \end{document}

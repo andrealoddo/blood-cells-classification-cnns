@@ -1,0 +1,110 @@
+\documentclass[12pt,italian]{article}
+\usepackage{graphicx}
+\usepackage{longtable}
+\parskip 0.1in
+\oddsidemargin -1in
+\evensidemargin -1in
+\topmargin -0.5in
+\textwidth 6.8in
+\textheight 9.9in
+\usepackage{fancyhdr}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{amsmath}
+\begin{document}
+\begin{tiny}
+\begin{longtable}{lccccccccccccccccccccc}
+\toprule
+\multicolumn{21}{c}{Dataset=Raabin selection=\% prepro= none postpro= none, gl= 256} \\ 
+\toprule
+Classifier & Descriptor & \multicolumn{20}{c}{Target set} \\ 
+& \multicolumn{5}{c}{img} & \multicolumn{5}{c}{img_tCrop} & \multicolumn{5}{c}{img_wrongCrop} & \multicolumn{5}{c}{img_wrongCrop2} \\ 
+& A & P & R & S & F1 & A & P & R & S & F1 & A & P & R & S & F1 & A & P & R & S & F1 \\ 
+\midrule
+\multirow{}{*}{kNN}& Legendre \\ 
+& Zernike \\ 
+& HARri \\ 
+& LBP18 \\ 
+& Histogram \\ 
+& Correlogram \\ 
+& Haar wavelet \\ 
+& Gabor wavelet \\ 
+& AlexNet & 90.2 & 76.9 & 76.2 & 93.8 & 76.2 \\ 
+& VGGNet-19 & 83.6 & 60.1 & 59.0 & 89.7 & 59.3 \\ 
+& ResNet-50 & 92.1 & 81.0 & 80.8 & 95.0 & 80.6 \\ 
+& GoogleNet & 93.3 & 85.0 & 83.7 & 95.7 & 83.2 \\ 
+& ResNet-18 & 86.7 & 67.8 & 67.2 & 91.8 & 67.0 \\ 
+& ResNet-101 & 91.9 & 80.9 & 80.5 & 94.8 & 80.6 \\ 
+& VGGNet-16 & 91.2 & 79.1 & 78.8 & 94.4 & 78.9 \\ 
+& Inceptionv3 & 91.2 & 78.5 & 78.2 & 94.4 & 78.2 \\ 
+\hline
+& AVG &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 & 45.0 & 38.1 & 37.8 & 46.8 & 37.7 \\ 
+\hline
+\bottomrule
+\end{longtable} 
+
+ \pagebreak 
+\begin{longtable}{lccccccccccccccccccccc}
+\toprule
+\multicolumn{21}{c}{Dataset=Raabin selection=\% prepro= none postpro= none, gl= 256} \\ 
+\toprule
+Classifier & Descriptor & \multicolumn{20}{c}{Target set} \\ 
+& \multicolumn{5}{c}{img} & \multicolumn{5}{c}{img_tCrop} & \multicolumn{5}{c}{img_wrongCrop} & \multicolumn{5}{c}{img_wrongCrop2} \\ 
+& A & P & R & S & F1 & A & P & R & S & F1 & A & P & R & S & F1 & A & P & R & S & F1 \\ 
+\midrule
+\multirow{}{*}{SVMRbf}& Legendre \\ 
+& Zernike \\ 
+& HARri \\ 
+& LBP18 \\ 
+& Histogram \\ 
+& Correlogram \\ 
+& Haar wavelet \\ 
+& Gabor wavelet \\ 
+& AlexNet & 91.0 & 78.3 & 77.9 & 94.3 & 77.6 \\ 
+& VGGNet-19 & 88.6 & 71.6 & 71.8 & 92.8 & 71.5 \\ 
+& ResNet-50 & 93.5 & 84.6 & 84.3 & 95.8 & 84.3 \\ 
+& GoogleNet & 95.1 & 89.4 & 88.1 & 96.9 & 87.7 \\ 
+& ResNet-18 & 90.8 & 77.7 & 77.0 & 94.3 & 76.6 \\ 
+& ResNet-101 & 93.9 & 85.3 & 85.2 & 96.1 & 85.2 \\ 
+& VGGNet-16 & 94.0 & 86.3 & 85.8 & 96.2 & 85.8 \\ 
+& Inceptionv3 & 92.9 & 84.6 & 82.6 & 95.5 & 82.6 \\ 
+\hline
+& AVG &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 & 46.2 & 41.1 & 40.8 & 47.6 & 40.7 \\ 
+\hline
+\bottomrule
+\end{longtable} 
+
+ \pagebreak 
+\begin{longtable}{lccccccccccccccccccccc}
+\toprule
+\multicolumn{21}{c}{Dataset=Raabin selection=\% prepro= none postpro= none, gl= 256} \\ 
+\toprule
+Classifier & Descriptor & \multicolumn{20}{c}{Target set} \\ 
+& \multicolumn{5}{c}{img} & \multicolumn{5}{c}{img_tCrop} & \multicolumn{5}{c}{img_wrongCrop} & \multicolumn{5}{c}{img_wrongCrop2} \\ 
+& A & P & R & S & F1 & A & P & R & S & F1 & A & P & R & S & F1 & A & P & R & S & F1 \\ 
+\midrule
+\multirow{}{*}{RF}& Legendre \\ 
+& Zernike \\ 
+& HARri \\ 
+& LBP18 \\ 
+& Histogram \\ 
+& Correlogram \\ 
+& Haar wavelet \\ 
+& Gabor wavelet \\ 
+& AlexNet & 93.0 & 83.4 & 82.8 & 95.5 & 82.8 \\ 
+& VGGNet-19 & 89.0 & 72.8 & 72.7 & 93.0 & 72.4 \\ 
+& ResNet-50 & 93.3 & 83.9 & 83.7 & 95.7 & 83.6 \\ 
+& GoogleNet & 93.6 & 86.3 & 84.6 & 95.9 & 84.1 \\ 
+& ResNet-18 & 89.6 & 74.6 & 74.1 & 93.5 & 73.7 \\ 
+& ResNet-101 & 93.0 & 83.0 & 82.8 & 95.5 & 82.8 \\ 
+& VGGNet-16 & 93.4 & 84.4 & 84.3 & 95.8 & 84.3 \\ 
+& Inceptionv3 & 93.9 & 85.7 & 84.9 & 96.1 & 84.9 \\ 
+\hline
+& AVG &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 &  0.0 & 46.2 & 40.9 & 40.6 & 47.6 & 40.5 \\ 
+\hline
+\bottomrule
+\end{longtable} 
+
+ \pagebreak 
+\end{tiny} 
+ \end{document}

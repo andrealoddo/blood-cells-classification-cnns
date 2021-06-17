@@ -1,0 +1,40 @@
+\documentclass[12pt,italian]{article}
+\usepackage{graphicx}
+\usepackage{longtable}
+\parskip 0.1in
+\oddsidemargin -1in
+\evensidemargin -1in
+\topmargin -0.5in
+\textwidth 6.8in
+\textheight 9.9in
+\usepackage{fancyhdr}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{amsmath}
+\begin{document}
+\begin{tiny}
+\begin{longtable}{lcccccccccccccccc}
+\toprule
+\multicolumn{16}{c}{Dataset=ALLIDB2 selection=\% prepro= none postpro= none, gl= 256} \\ 
+\toprule
+Descriptor & \multicolumn{15}{c}{Classifier} \\ 
+& \multicolumn{5}{c}{kNN} & \multicolumn{5}{c}{SVMRbf} & \multicolumn{5}{c}{RF} \\ 
+& A & P & R & S & F1 & A & P & R & S & F1 & A & P & R & S & F1 \\ 
+\midrule
+AlexNet & 70.5 & 72.2 & 66.7 & 74.4 & 69.3 & 44.9 & 46.6 & 69.2 & 20.5 & 55.7 & 60.3 & 62.5 & 51.3 & 69.2 & 56.3 \\ 
+VGGNet-19 & 69.2 & 61.9 & 100.0 & 38.5 & 76.5 & 62.8 & 57.4 & 100.0 & 25.6 & 72.9 & 65.4 & 59.1 & 100.0 & 30.8 & 74.3 \\ 
+ResNet-50 & 82.1 & 82.1 & 82.1 & 82.1 & 82.1 & 83.3 & 81.0 & 87.2 & 79.5 & 84.0 & 80.8 & 78.6 & 84.6 & 76.9 & 81.5 \\ 
+GoogleNet & 82.1 & 77.8 & 89.7 & 74.4 & 83.3 & 83.3 & 79.5 & 89.7 & 76.9 & 84.3 & 83.3 & 79.5 & 89.7 & 76.9 & 84.3 \\ 
+ResNet-18 & 75.6 & 67.9 & 97.4 & 53.8 & 80.0 & 78.2 & 71.2 & 94.9 & 61.5 & 81.3 & 76.9 & 70.6 & 92.3 & 61.5 & 80.0 \\ 
+ResNet-101 & 76.9 & 80.0 & 71.8 & 82.1 & 75.7 & 82.1 & 85.7 & 76.9 & 87.2 & 81.1 & 79.5 & 81.1 & 76.9 & 82.1 & 78.9 \\ 
+VGGNet-16 & 69.2 & 65.3 & 82.1 & 56.4 & 72.7 & 71.8 & 64.9 & 94.9 & 48.7 & 77.1 & 71.8 & 66.7 & 87.2 & 56.4 & 75.6 \\ 
+Inceptionv3 & 76.9 & 70.6 & 92.3 & 61.5 & 80.0 & 84.6 & 78.7 & 94.9 & 74.4 & 86.0 & 76.9 & 70.6 & 92.3 & 61.5 & 80.0 \\ 
+\hline
+AVG & 75.3 & 72.2 & 85.3 & 65.4 & 77.4 & 73.9 & 70.6 & 88.5 & 59.3 & 77.8 & 74.4 & 71.1 & 84.3 & 64.4 & 76.4 \\ 
+\hline
+\bottomrule
+\end{longtable} 
+
+ \pagebreak 
+\end{tiny} 
+ \end{document}

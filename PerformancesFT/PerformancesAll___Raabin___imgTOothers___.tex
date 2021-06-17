@@ -1,0 +1,108 @@
+\documentclass[12pt,italian]{article}
+\usepackage{graphicx}
+\usepackage{longtable}
+\parskip 0.1in
+\oddsidemargin -1in
+\evensidemargin -1in
+\topmargin -0.5in
+\textwidth 6.8in
+\textheight 9.9in
+\usepackage{fancyhdr}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{amsmath}
+\begin{document}
+\begin{tiny}
+\begin{longtable}{lccccccccccccccccccccc}
+\toprule
+\multicolumn{21}{c}{Dataset=Raabin selection=\% prepro= none postpro= none, gl= 256} \\ 
+\toprule
+Classifier & Descriptor & \multicolumn{20}{c}{Target set} \\ 
+& \multicolumn{5}{c}{img} & \multicolumn{5}{c}{img_tCrop} & \multicolumn{5}{c}{img_wrongCrop} & \multicolumn{5}{c}{img_wrongCrop2} \\ 
+& A & P & R & S & F1 & A & P & R & S & F1 & A & P & R & S & F1 & A & P & R & S & F1 \\ 
+\midrule
+\multirow{}{*}{kNN}& Legendre \\ 
+& Zernike \\ 
+& HARri \\ 
+& LBP18 \\ 
+& Histogram \\ 
+& Correlogram \\ 
+& Haar wavelet \\ 
+& Gabor wavelet \\ 
+& AlexNet & 97.0 & 92.9 & 92.4 & 98.0 & 92.3 & 77.0 & 45.2 & 43.3 & 85.1 & 36.4 & 76.2 & 38.6 & 41.3 & 84.6 & 32.4 & 80.6 & 55.1 & 52.3 & 87.4 & 45.5 \\ 
+& VGGNet-19 & 95.7 & 89.2 & 89.2 & 97.2 & 89.1 & 68.5 & 20.2 & 20.9 & 80.8 & 10.0 & 68.1 & 18.2 & 19.5 & 80.9 &  7.8 & 70.1 & 29.5 & 25.6 & 81.6 & 16.5 \\ 
+& ResNet-50 & 96.8 & 92.8 & 92.2 & 97.9 & 92.1 & 81.5 & 62.6 & 55.2 & 88.0 & 51.8 & 77.0 & 61.0 & 44.2 & 85.0 & 41.3 & 83.9 & 63.0 & 61.0 & 89.6 & 57.5 \\ 
+& GoogleNet & 97.7 & 94.4 & 94.2 & 98.5 & 94.1 & 77.5 & 46.6 & 44.5 & 85.7 & 34.6 & 75.9 & 43.2 & 40.7 & 84.7 & 28.7 & 82.5 & 55.7 & 57.3 & 89.0 & 51.3 \\ 
+& ResNet-18 & 96.3 & 90.6 & 90.7 & 97.7 & 90.6 & 72.2 & 33.6 & 30.2 & 83.0 & 20.2 & 69.7 & 42.7 & 23.3 & 81.9 & 13.6 & 74.2 & 40.4 & 35.5 & 84.2 & 26.5 \\ 
+& ResNet-101 & 98.6 & 96.5 & 96.5 & 99.1 & 96.5 & 73.5 & 37.2 & 35.8 & 82.8 & 28.5 & 69.7 & 35.4 & 26.2 & 80.2 & 16.2 & 78.1 & 54.5 & 47.1 & 86.0 & 39.5 \\ 
+& VGGNet-16 & 98.3 & 96.0 & 95.9 & 98.9 & 95.9 & 77.9 & 56.1 & 46.5 & 85.9 & 40.5 & 73.4 & 51.4 & 35.5 & 82.8 & 29.1 & 82.8 & 61.9 & 58.4 & 89.0 & 54.6 \\ 
+& Inceptionv3 & 98.4 & 96.4 & 96.2 & 99.0 & 96.2 & 70.1 & 59.5 & 27.3 & 80.5 & 19.0 & 69.3 & 62.8 & 25.3 & 79.9 & 15.8 & 72.7 & 59.4 & 33.7 & 82.3 & 28.7 \\ 
+\hline
+& AVG & 48.7 & 46.8 & 46.7 & 49.1 & 46.7 & 37.4 & 22.6 & 19.0 & 42.0 & 15.1 & 36.2 & 22.1 & 16.0 & 41.2 & 11.6 & 39.1 & 26.2 & 23.2 & 43.1 & 20.0 \\ 
+\hline
+\bottomrule
+\end{longtable} 
+
+ \pagebreak 
+\begin{longtable}{lccccccccccccccccccccc}
+\toprule
+\multicolumn{21}{c}{Dataset=Raabin selection=\% prepro= none postpro= none, gl= 256} \\ 
+\toprule
+Classifier & Descriptor & \multicolumn{20}{c}{Target set} \\ 
+& \multicolumn{5}{c}{img} & \multicolumn{5}{c}{img_tCrop} & \multicolumn{5}{c}{img_wrongCrop} & \multicolumn{5}{c}{img_wrongCrop2} \\ 
+& A & P & R & S & F1 & A & P & R & S & F1 & A & P & R & S & F1 & A & P & R & S & F1 \\ 
+\midrule
+\multirow{}{*}{SVMRbf}& Legendre \\ 
+& Zernike \\ 
+& HARri \\ 
+& LBP18 \\ 
+& Histogram \\ 
+& Correlogram \\ 
+& Haar wavelet \\ 
+& Gabor wavelet \\ 
+& AlexNet & 98.0 & 95.2 & 95.1 & 98.7 & 95.0 & 76.3 & 50.3 & 41.6 & 84.4 & 33.4 & 75.2 & 46.3 & 39.0 & 83.7 & 29.8 & 80.4 & 57.6 & 51.7 & 87.1 & 44.6 \\ 
+& VGGNet-19 & 96.1 & 90.0 & 90.1 & 97.5 & 90.1 & 68.0 &  4.6 & 19.2 & 80.7 &  7.1 & 68.0 &  3.7 & 18.9 & 80.9 &  6.2 & 68.3 & 26.4 & 20.3 & 80.8 &  9.6 \\ 
+& ResNet-50 & 97.9 & 95.0 & 94.8 & 98.6 & 94.7 & 79.6 & 59.8 & 50.6 & 86.8 & 47.7 & 73.8 & 58.2 & 36.3 & 82.9 & 32.2 & 84.3 & 62.8 & 61.9 & 89.8 & 58.0 \\ 
+& GoogleNet & 97.7 & 94.5 & 94.2 & 98.5 & 94.1 & 74.6 & 36.2 & 36.3 & 84.4 & 25.6 & 72.8 & 34.4 & 32.0 & 83.3 & 20.3 & 78.5 & 43.5 & 46.2 & 86.6 & 38.1 \\ 
+& ResNet-18 & 96.2 & 90.3 & 90.4 & 97.6 & 90.3 & 70.8 & 39.7 & 26.7 & 82.3 & 16.9 & 68.8 & 37.8 & 20.9 & 81.3 &  9.8 & 72.8 & 41.2 & 32.3 & 83.3 & 22.7 \\ 
+& ResNet-101 & 98.8 & 97.1 & 97.1 & 99.2 & 97.1 & 75.7 & 37.7 & 41.3 & 84.2 & 31.5 & 73.9 & 36.4 & 36.6 & 83.0 & 27.1 & 77.7 & 57.9 & 46.2 & 85.7 & 37.8 \\ 
+& VGGNet-16 & 98.7 & 96.8 & 96.8 & 99.2 & 96.8 & 79.2 & 55.2 & 49.4 & 86.9 & 42.2 & 75.1 & 45.5 & 39.5 & 84.1 & 32.2 & 83.2 & 59.5 & 59.3 & 89.5 & 53.8 \\ 
+& Inceptionv3 & 98.3 & 96.0 & 95.9 & 98.9 & 95.9 & 70.9 & 59.6 & 29.4 & 81.1 & 21.9 & 69.0 & 40.1 & 24.7 & 79.7 & 14.9 & 74.2 & 58.4 & 37.5 & 83.4 & 32.4 \\ 
+\hline
+& AVG & 48.8 & 47.2 & 47.1 & 49.3 & 47.1 & 37.2 & 21.4 & 18.4 & 41.9 & 14.1 & 36.0 & 18.9 & 15.5 & 41.2 & 10.8 & 38.7 & 25.5 & 22.2 & 42.9 & 18.6 \\ 
+\hline
+\bottomrule
+\end{longtable} 
+
+ \pagebreak 
+\begin{longtable}{lccccccccccccccccccccc}
+\toprule
+\multicolumn{21}{c}{Dataset=Raabin selection=\% prepro= none postpro= none, gl= 256} \\ 
+\toprule
+Classifier & Descriptor & \multicolumn{20}{c}{Target set} \\ 
+& \multicolumn{5}{c}{img} & \multicolumn{5}{c}{img_tCrop} & \multicolumn{5}{c}{img_wrongCrop} & \multicolumn{5}{c}{img_wrongCrop2} \\ 
+& A & P & R & S & F1 & A & P & R & S & F1 & A & P & R & S & F1 & A & P & R & S & F1 \\ 
+\midrule
+\multirow{}{*}{RF}& Legendre \\ 
+& Zernike \\ 
+& HARri \\ 
+& LBP18 \\ 
+& Histogram \\ 
+& Correlogram \\ 
+& Haar wavelet \\ 
+& Gabor wavelet \\ 
+& AlexNet & 97.7 & 94.5 & 94.2 & 98.4 & 94.1 & 77.8 & 50.8 & 45.3 & 85.6 & 38.5 & 76.6 & 49.1 & 42.2 & 84.8 & 33.5 & 82.0 & 55.8 & 55.5 & 88.3 & 47.2 \\ 
+& VGGNet-19 & 95.8 & 89.4 & 89.5 & 97.3 & 89.4 & 68.3 & 26.7 & 20.3 & 80.8 &  9.3 & 67.9 &  3.9 & 18.9 & 80.8 &  6.5 & 69.7 & 28.9 & 24.4 & 81.5 & 15.3 \\ 
+& ResNet-50 & 97.7 & 94.3 & 94.2 & 98.5 & 94.1 & 75.5 & 53.5 & 39.8 & 84.1 & 36.3 & 72.3 & 51.2 & 32.0 & 82.0 & 25.8 & 81.0 & 59.2 & 53.5 & 87.8 & 50.8 \\ 
+& GoogleNet & 97.3 & 93.7 & 93.3 & 98.2 & 93.3 & 76.9 & 46.0 & 43.3 & 85.3 & 33.5 & 75.6 & 39.5 & 40.1 & 84.5 & 28.4 & 81.0 & 56.0 & 53.5 & 87.9 & 48.3 \\ 
+& ResNet-18 & 96.3 & 90.5 & 90.7 & 97.7 & 90.6 & 71.7 & 39.3 & 29.4 & 82.6 & 18.6 & 69.2 & 40.4 & 22.4 & 81.4 & 12.0 & 72.8 & 38.9 & 32.6 & 83.2 & 22.3 \\ 
+& ResNet-101 & 98.7 & 96.8 & 96.8 & 99.2 & 96.8 & 70.3 & 26.8 & 25.9 & 81.3 & 15.7 & 69.8 & 27.0 & 24.4 & 81.1 & 12.5 & 74.7 & 50.9 & 37.2 & 84.1 & 29.1 \\ 
+& VGGNet-16 & 98.6 & 96.6 & 96.5 & 99.1 & 96.5 & 71.1 & 47.6 & 29.4 & 81.2 & 21.8 & 68.9 & 39.6 & 24.1 & 79.7 & 13.2 & 76.4 & 53.7 & 42.2 & 84.6 & 38.6 \\ 
+& Inceptionv3 & 98.3 & 96.0 & 95.9 & 99.0 & 95.9 & 69.4 & 50.7 & 25.0 & 80.2 & 14.3 & 68.6 & 28.9 & 23.3 & 79.6 & 11.8 & 72.0 & 51.8 & 31.1 & 82.1 & 23.0 \\ 
+\hline
+& AVG & 48.8 & 47.0 & 46.9 & 49.2 & 46.9 & 36.3 & 21.3 & 16.2 & 41.3 & 11.8 & 35.6 & 17.5 & 14.2 & 40.9 &  9.0 & 38.1 & 24.7 & 20.6 & 42.5 & 17.2 \\ 
+\hline
+\bottomrule
+\end{longtable} 
+
+ \pagebreak 

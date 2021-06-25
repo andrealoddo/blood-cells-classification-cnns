@@ -15,12 +15,13 @@ addpath('utils');
 [datasets,datasetsname,splits,...
     descriptors_sets,descriptors_sets_names, aug, folders_split, ...
     graylevel, colour, cl, prepro, postpro, featselector, ...
-    selection, classifier] = getInfo()
+    selection, classifier] = getInfo();
+
 %try
     
-    
 if computeFeatures == 1
-    computeFeatures();
+    
+    computeFeatures( datasets, datasetsname, folders_split, splits, labelsPath );
     
 end
     

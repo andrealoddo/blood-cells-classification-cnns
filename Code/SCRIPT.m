@@ -1,4 +1,4 @@
-l'acomputeFeatures = 0;
+computeFeatures = 0;
 computePerformances = 1;
 computePerformancesCross = 1;
 saveTables = 1;

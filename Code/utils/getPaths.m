@@ -1,33 +1,23 @@
-function [outputArg1,outputArg2] = getPaths()
+function [sourcePath, labelsPath, featsPath, modelsPath, classifPath, perfPath] = getPaths()
 
     if exist('C:\Users\Lorenzo', 'dir')== 7 %%PATH per il PC di Lorenzo
         sep = '\';
+        base = 'D:\Repositories\MATLAB\Blood\blood-cells-classification-cnns';
         sourcePath = 'D:\ImmaginiLavoro\Medical\Blood';
-        labelsPath = 'D:\DatiEsperimenti\Medical\Blood\ALLClassification\Labels';
-        featsPath  = 'D:\DatiEsperimenti\Medical\Blood\ALLClassification\Features';
-        modelsPath  = 'D:\DatiEsperimenti\Medical\Blood\ALLClassification\Models';
-        classifPath= 'D:\DatiEsperimenti\Medical\Blood\ALLClassification\Classification';
-        perfPath   = 'D:\DatiEsperimenti\Medical\Blood\ALLClassification\Performances';  
     elseif exist('/home/lputzu', 'dir')== 7 %%PATH per Castor
         sep = '/';
-        base = '/home/lputzu/Workspaces/MATLAB/Esperimenti/Medical/Blood/ALLClassification';
-        sourcePath = [base sep 'dataset'];
-        labelsPath = [base sep 'Labels']   ;
-        featsPath  = [base sep 'Features'];
-        modelsPath  = [base sep 'Models'];
-        classifPath= [base sep 'Classification'];
-        perfPath   = [base sep 'Performances']; 
+        base = '/home/lputzu/Workspaces/MATLAB/Esperimenti/Medical/Blood/blood-cells-classification-cnns';
+        sourcePath = '/home/lputzu/Workspaces/MATLAB/Esperimenti/Medical/Blood/dataset';
         addpath(genpath('/home/lputzu/Workspaces/MATLAB/Function'));    
     elseif exist('C:\Users\loand', 'dir')== 7 %%PATH per Castor
         sep = '\';
         base = 'C:\Users\loand\Documents\MATLAB\ALLClassification';
         sourcePath = [base sep 'dataset'];
-        labelsPath = [base sep 'Labels']   ;
-        featsPath  = [base sep 'Features'];
-        modelsPath  = [base sep 'Models'];
-        classifPath= [base sep 'Classification'];
-        perfPath   = [base sep 'Performances']; 
     end
-
+    labelsPath = [base sep 'Labels']   ;
+    featsPath  = [base sep 'Features'];
+    modelsPath  = [base sep 'Models'];
+    classifPath= [base sep 'Classification'];
+    perfPath   = [base sep 'Performances']; 
 end
 

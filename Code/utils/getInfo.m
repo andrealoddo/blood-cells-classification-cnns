@@ -77,15 +77,11 @@ function [datasets,datasetsname,splits,training_splits,...
         
         
     %%%% FURTHER SETTINGS %%%%
-    
-    %%%% MODELS FOLDERS %%%%
+         
+    %%%% PRE/POST PROCESSING SETTINGS %%%%
     
     aug = 0;    % 0: no augmentation, 1: augmentation
-    folders_split = {'split_large', 'split_tight'};
-
     
-    %%%% PRE/POST PROCESSING SETTINGS %%%%
-
     graylevel = [256];
     colour = {'gray','RGB', 'HSV', 'LAB'};
     cl = 1;

@@ -1,9 +1,9 @@
-function timeExtraction = setOrLoadFile(timeDestination)
+function file = setOrLoadFile( path, fileToLoad )
 
-    if isfile(timeDestination)
-        timeExtraction = struct();
+    if isfile(path)
+        file = struct();
     else
-        load(timeDestination, 'timeExtraction');   
+        file = load(path, fileToLoad );   
     end
 
 end

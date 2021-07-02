@@ -15,7 +15,7 @@ addpath('utils');
 [sourcePath, labelsPath, featsPath, modelsPath, classifPath, perfPath, confPath] = getPaths();
 
 [datasets,datasetsname,splits,training_splits,...
-    descriptors_sets, descriptors_sets_names, aug, folders_split, ...
+    descriptors_sets, descriptors_sets_names, aug, ...
     graylevel, colour, cl, prepro, postpro, featselector, ...
     selection, classifier] = getInfo();
 
@@ -29,11 +29,19 @@ end
 
 if computeFeatures == 1
     
-    computeFeaturesExec( datasets, datasetsname, folders_split, splits, labelsPath, descriptors_sets );
+    computeFeaturesExec( datasets, datasetsname, training_splits, splits, ...
+        labelsPath, descriptors_sets, classifier, postpro );
     
 end
     
 %------------------------------------------------------------------------------------------------------------
+
+if computePerformances == 1
+    
+    computePerformancesExec( datasets, datasetsname, training_splits, splits, ...
+        labelsPath, perfPath, descriptors_sets, prepro, featselector );
+    
+end
 
     if computePerformances == 1
         for dt = 1:numel(datasets)
@@ -45,6 +53,8 @@ end
             else
                 load(timeDestination, 'timeClassification');   
             end
+            % ok
+            
             for fosp = 1:numel(folders_split) % training split
                 for sp = 1:numel(splits{dt}) % all splits
                     %Load labels

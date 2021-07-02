@@ -10,7 +10,7 @@ function computeFeaturesExec( datasets, datasetsname, folders_split, splits, lab
                     strcat( 'timeExtraction___', datasetsname{dt}, ...
                     '___', splits{dt}{sp}, '.mat') );
                 
-                timeExtraction = setOrLoadFile( timeDestination );
+                timeExtraction = setOrLoadFile( timeDestination, 'timeExtraction' );
                 
                 source = fullfile( sourcePath, datasets{dt}, splits{dt}{sp} );
                 

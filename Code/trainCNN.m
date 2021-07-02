@@ -48,7 +48,7 @@ function [trainedNet, chart] = trainCNN(net, netName, netCheckPath, modelPath,..
 
     % Training options
     miniBatchSize = 8;
-    maxEpochs = 1;
+    maxEpochs = 50;
     valFrequency = max(floor(numel(imdsTest.Files)/miniBatchSize)*10,1);
 
     if( saveCheckPoints == 0 )

@@ -1,6 +1,7 @@
+trainNets = 1;
 computeFeatures = 0;
-computeCNNFeaturesTrained = 1; % reti addestrate, modelli custom
-savePerfFeaturesTrained = 1;   % per filename tabelle performance
+computeCNNFeaturesTrained = 0; % reti addestrate, modelli custom
+savePerfFeaturesTrained = 0;   % per filename tabelle performance
 computePerformances = 0;
 computePerformancesCross = 0;
 saveTables = 0;
@@ -11,22 +12,29 @@ warning off;
 codeFolder = pwd;
 addpath('utils');
 
-[sourcePath, labelsPath, featsPath, modelsPath, classifPath, perfPath] = getPaths();
-[datasets,datasetsname,splits,...
-    descriptors_sets,descriptors_sets_names, aug, folders_split, ...
+[sourcePath, labelsPath, featsPath, modelsPath, classifPath, perfPath, confPath] = getPaths();
+
+[datasets,datasetsname,splits,training_splits,...
+    descriptors_sets, descriptors_sets_names, aug, folders_split, ...
     graylevel, colour, cl, prepro, postpro, featselector, ...
     selection, classifier] = getInfo();
 
 %try
     
+if trainNets == 1
+    
+    trainMultipleCNNs( sourcePath, modelsPath, confPath, datasets, training_splits, aug, descriptors_sets );
+    
+end
+
 if computeFeatures == 1
     
-    computeFeatures( datasets, datasetsname, folders_split, splits, labelsPath );
+    computeFeaturesExec( datasets, datasetsname, folders_split, splits, labelsPath, descriptors_sets );
     
 end
     
-    %------------------------------------------------------------------------------------------------------------
-    
+%------------------------------------------------------------------------------------------------------------
+
     if computePerformances == 1
         for dt = 1:numel(datasets)
             timeDestination = [perfPath sep,...

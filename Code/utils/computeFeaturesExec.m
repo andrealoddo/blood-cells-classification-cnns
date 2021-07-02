@@ -1,4 +1,4 @@
-function computeFeatures( datasets, datasetsname, folders_split, splits, labelsPath )
+function computeFeaturesExec( datasets, datasetsname, folders_split, splits, labelsPath, descriptors_sets )
 
     descriptors = getUniqueDescriptorsList(descriptors_sets);
     

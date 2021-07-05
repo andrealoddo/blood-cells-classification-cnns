@@ -1,4 +1,4 @@
-function [convnet] = loadUntrainedCNN( CNNArch )
+function convnet = loadUntrainedCNN( CNNArch )
     
     if contains(CNNArch,'alex') %%%alexnet CNN Features
         convnet = alexnet;

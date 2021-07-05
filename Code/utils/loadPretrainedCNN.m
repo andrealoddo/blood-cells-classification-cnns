@@ -1,4 +1,4 @@
-function [convnet_ind] = loadPretrainedCNN( CNNArch )
+function [convnet_ind] = loadPretrainedCNN( CNNArch, models )
     
     if contains(CNNArch,'FTalex') %%%alexnet CNN Features
         convnet_ind = find( contains( {models.name}.', 'alex' ) );

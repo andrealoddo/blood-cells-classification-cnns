@@ -1,9 +1,11 @@
-function computeFeaturesExec( datasets, datasetsname, folders_split, splits, labelsPath, descriptors_sets )
-
+function computeFeaturesExec( datasets, datasetsname, training_splits, splits, ...
+    labelsPath, descriptors_sets, perfPath, sourcePath, modelsPath, ...
+    computeCNNFeaturesTrained, aug)
+    
     descriptors = getUniqueDescriptorsList(descriptors_sets);
     
     for dt = 1:numel(datasets)
-        for fs = 1:numel(folders_split)
+        for fs = 1:numel(training_splits)
             for sp = 1:numel(splits{dt})
                 
                 timeDestination = fullfile(perfPath, ...
@@ -32,7 +34,7 @@ function computeFeaturesExec( datasets, datasetsname, folders_split, splits, lab
                 save(labelDestination, 'labels'); 
                 
                 if contains(datasetsname{dt} ,["ALLIDB2", "Raabin"])
-                    idxDestination = [labelsPath sep datasetsname{dt} '___idx'];
+                    idxDestination = fullfile(labelsPath, strcat( datasetsname{dt}, '___idx'));
                     [training, testing] = splitEachLabel(imds,0.7);
                     idx = {imgDatastore2DatasetIDX(imds, training); imgDatastore2DatasetIDX(imds, testing)};
                     save(idxDestination, 'idx'); 
@@ -46,10 +48,10 @@ function computeFeaturesExec( datasets, datasetsname, folders_split, splits, lab
                             
                         elseif( computeCNNFeaturesTrained == 1 ) %%% CNN pretrained architectures
                             pretrainedModelsPath = fullfile( modelsPath, ...
-                                string(datasetsname(dt)), aug, string(folders_split(fs)), '*.mat' );
+                                string(datasetsname(dt)), aug, string(training_splits(fs)), '*.mat' );
                             models = dir( pretrainedModelsPath );
                             
-                            convnet_ind = loadPretrainedCNN( models, descriptors{dsc} );
+                            convnet_ind = loadPretrainedCNN( descriptors{dsc}, models );
                             
                             convnet = trainedNet;
                             clear trainedNet;

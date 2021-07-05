@@ -1,9 +1,9 @@
 function file = setOrLoadFile( path, fileToLoad )
 
     if isfile(path)
-        file = struct();
-    else
         file = load(path, fileToLoad );   
+    else
+        file = struct();
     end
 
 end

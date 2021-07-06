@@ -52,7 +52,7 @@ function trainMultipleCNNs( rootPath, modelsPath, confsPath, datasets, training_
                 netName = cnnNames{i};
                 netCheckPath = fullfile(checkPath, training_splits{bb}, netName);
 
-                [~, ~] = trainCNN(net, netName, netCheckPath, modelPath, confPath, ...
+                trainCNN(net, netName, netCheckPath, modelPath, confPath, ...
                     aug, classNumber, imdsTrain, imdsValid, imdsTest, saveCheckpoints);
             end
 

@@ -1,6 +1,6 @@
 function computeFeaturesExec( datasets, datasetsname, training_splits, splits, ...
-    labelsPath, descriptors_sets, perfPath, sourcePath, modelsPath, ...
-    computeCNNFeaturesTrained, aug)
+    labelsPath, descriptors_sets, perfPath, sourcePath, modelsPath, featsPath,...
+    computeCNNFeaturesTrained, aug, graylevel, prepro, colour, cl)
     
     descriptors = getUniqueDescriptorsList(descriptors_sets);
     
@@ -48,13 +48,12 @@ function computeFeaturesExec( datasets, datasetsname, training_splits, splits, .
                             
                         elseif( computeCNNFeaturesTrained == 1 ) %%% CNN pretrained architectures
                             pretrainedModelsPath = fullfile( modelsPath, ...
-                                string(datasetsname(dt)), aug, string(training_splits(fs)), '*.mat' );
-                            models = dir( pretrainedModelsPath );
+                                string(datasets(dt)), strcat('aug', num2str(aug)), training_splits{fs} );
+
+                            models = dir( fullfile(pretrainedModelsPath, '*.mat') );
                             
-                            convnet_ind = loadPretrainedCNN( descriptors{dsc}, models );
-                            
-                            convnet = trainedNet;
-                            clear trainedNet;
+                            convnet = loadPretrainedCNN( descriptors{dsc}, models );
+
                         end
                         
                         sizes = convnet.Layers(1).InputSize;
@@ -66,7 +65,7 @@ function computeFeaturesExec( datasets, datasetsname, training_splits, splits, .
 
                                 featDestination = fullfile(featsPath, ...
                                     strcat( datasetsname{dt}, '___',...
-                                    folders_split{fs}, '___',...
+                                    training_splits{fs}, '___',...
                                     splits{dt}{sp}, '___',...
                                     descriptors{dsc}, '___',...
                                     num2str(graylevel(gl)), '___',...
@@ -81,7 +80,7 @@ function computeFeaturesExec( datasets, datasetsname, training_splits, splits, .
                             end
                                 
                             %Check if file exists. If not, compute features.
-                            if isfile(featDestination)
+                            if( isfile(featDestination) == 0 )
                                 
                                 features = zeros(0,0);
                                 fprintf('Computing/reading features: %s %s %s %s\n', ...
@@ -91,7 +90,7 @@ function computeFeaturesExec( datasets, datasetsname, training_splits, splits, .
                                 if contains(descriptors{dsc}, 'CNN') %%%CNN Features
                                     imds.ReadFcn = @(filename)readAndPreprocessImage(filename,  prepro{pp}, [sizes(1) sizes(2)], graylevel(gl));
                             
-                                    features = getActivations( descriptors{dsc}, computeCNNFeaturesTrained );
+                                    features = getActivations( convnet, descriptors{dsc}, imds, computeCNNFeaturesTrained );
                                                                                                         
                                     features = squeeze(features);
                                     features = features';

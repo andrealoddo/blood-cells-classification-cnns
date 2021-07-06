@@ -62,7 +62,7 @@ else
         img = rgb2gray(img);
         iterations = 1;
     else
-        if size(img,3)==3 %se l'immagine è grayscale estrae cmq da un solo canale
+        if size(img,3)==3 %se l'immagine è RGB estrae cmq da un solo canale
             img = rgb2you(img, color);
             iterations = 3;
         else

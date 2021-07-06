@@ -1,4 +1,4 @@
-function [convnet_ind] = loadPretrainedCNN( CNNArch, models )
+function trainedNet = loadPretrainedCNN( CNNArch, models )
     
     if contains(CNNArch,'FTalex') %%%alexnet CNN Features
         convnet_ind = find( contains( {models.name}.', 'alex' ) );
@@ -28,7 +28,7 @@ function [convnet_ind] = loadPretrainedCNN( CNNArch, models )
         convnet_ind = find( contains( {models.name}.', 'resnet101' ) );
         load( fullfile(models(convnet_ind).folder, models(convnet_ind).name ) );
         disp( strcat('loaded ', models(convnet_ind).name, ' neural network') )
-    elseif contains(CNNArch,'FTInceptionv3') %%%inceptionv3 CNN Features
+    elseif contains(CNNArch,'FTinceptionv3') %%%inceptionv3 CNN Features
         convnet_ind = find( contains( {models.name}.', 'inceptionv3' ) );
         load( fullfile(models(convnet_ind).folder, models(convnet_ind).name ) );
         disp( strcat('loaded ', models(convnet_ind).name, ' neural network') )

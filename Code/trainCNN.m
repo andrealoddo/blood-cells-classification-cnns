@@ -52,9 +52,10 @@ function [trainedNet, chart] = trainCNN(net, netName, netCheckPath, modelPath,..
     valFrequency = max(floor(numel(imdsTest.Files)/miniBatchSize)*10,1);
     
     % Net name
-	netName = strcat( netName, '__EP', num2str(maxEpochs), '__MBS', num2str(miniBatchSize), '__AUG', num2str(AUG) );
+	netName = strcat( netName, '__EP', num2str(maxEpochs), '__MBS', num2str(miniBatchSize), '__AUG', num2str(AUG), '.mat' );
     if( isfile( fullfile(modelPath, netName) ) == 0 )
-        
+        sprintf("TRAINING %s: .", netName)
+
         if( saveCheckPoints == 0 )
             options = trainingOptions('adam', ...
                 'MiniBatchSize', miniBatchSize, ...
@@ -102,6 +103,8 @@ function [trainedNet, chart] = trainCNN(net, netName, netCheckPath, modelPath,..
         % -------------------    SAVE   ---------------------------
         save(fullfile(modelPath, netName), "trainedNet");
         save(fullfile(confPath, netName), "chart");
+    else
+        sprintf("%s already trained.", netName)
     end
 
 end

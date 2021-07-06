@@ -1,5 +1,5 @@
-trainNets = 1;
-computeFeatures = 0;
+trainNets = 0;
+computeFeatures = 1;
 computeCNNFeaturesTrained = 1; % reti addestrate, modelli custom
 savePerfFeaturesTrained = 0;   % per filename tabelle performance
 computePerformances = 0;
@@ -30,8 +30,8 @@ end
 if computeFeatures == 1
     
     computeFeaturesExec( datasets, datasetsname, training_splits, splits, ...
-        labelsPath, descriptors_sets, perfPath, sourcePath, modelsPath, ...
-        computeCNNFeaturesTrained, aug );
+        labelsPath, descriptors_sets, perfPath, sourcePath, modelsPath, featsPath,...
+        computeCNNFeaturesTrained, aug, graylevel, prepro, colour, cl );
     
 end
     

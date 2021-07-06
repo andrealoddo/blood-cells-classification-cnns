@@ -1,4 +1,4 @@
-function [features] = getActivations( CNNArch, computeCNNFeaturesTrained )
+function features = getActivations( convnet, CNNArch, imds, computeCNNFeaturesTrained )
 
     alexnet_fc = 'fc7';
     vgg_fc = 'fc7';
@@ -21,7 +21,7 @@ function [features] = getActivations( CNNArch, computeCNNFeaturesTrained )
         features = activations(convnet, imds, googlenet_fc, 'MiniBatchSize', 32);
     elseif contains(CNNArch, 'resnet') %%%CNN Features
         features = activations(convnet, imds, resnet_fc, 'MiniBatchSize', 32);
-    elseif contains(CNNArch, 'Inception') %%%CNN Features
+    elseif contains(CNNArch, 'inception') %%%CNN Features
         features = activations(convnet, imds, inceptionv3net_fc, 'MiniBatchSize', 32);
     end
     

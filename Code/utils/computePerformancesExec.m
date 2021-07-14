@@ -1,6 +1,6 @@
 function computePerformancesExec( datasets, datasetsname, training_splits, ...
-    splits, labelsPath, perfPath, descriptors_sets, prepro, featselector, ...
-    classifier, postpro )
+    splits, labelsPath, perfPath, featsPath, classifPath, modelsPath, ...,
+    descriptors_sets, prepro, featselector, selection, graylevel, classifier, postpro, computeCNNFeaturesTrained )
 
     for dt = 1:numel(datasets)
 
@@ -13,7 +13,7 @@ function computePerformancesExec( datasets, datasetsname, training_splits, ...
         for fosp = 1:numel(training_splits) % training split
             for sp = 1:numel(splits{dt}) % all splits
 
-                [trainLabels, testLabels, trainSplit] = loadLabels( datasetsname{dt}, labelsPath, splits{dt} );
+                [trainLabels, testLabels, trainSplit, string_split, idx] = loadLabels( datasetsname{dt}, labelsPath, splits{dt}, sp );
 
                 for dsc_set = 1:numel(descriptors_sets)
                     descriptors = strsplit(descriptors_sets{dsc_set},'-');
@@ -22,11 +22,10 @@ function computePerformancesExec( datasets, datasetsname, training_splits, ...
                         for pp = 1:numel(prepro)
 
                             % Take train features
-                            DBTrain = [];
-                            DBTest  = [];
                             for dsc = 1:numel(descriptors)
-                                [DBTrain, DBTest] = getFeatures( datasetsname{dt}, ...
-                                    splits{dt}, descriptors{dsc}, graylevel(gl), prepro{pp}, trainSplit ); 
+                                [DBTrain, DBTest] = getFeatures( datasetsname{dt}, featsPath, ...
+                                    training_splits{fosp}, splits{dt}, descriptors{dsc}, graylevel(gl), ...
+                                    prepro{pp}, trainSplit, computeCNNFeaturesTrained, sp); 
                             end
 
                             for fs = 1:numel(featselector)

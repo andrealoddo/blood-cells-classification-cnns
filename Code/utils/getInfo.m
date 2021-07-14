@@ -75,7 +75,6 @@ function [datasets,datasetsname,splits,training_splits,...
             'AlexNet','VGGNet-19','ResNet-50','GoogleNet', ...
             'ResNet-18','ResNet-101','VGGNet-16','Inceptionv3'};
         
-        
     %%%% FURTHER SETTINGS %%%%
          
     %%%% PRE/POST PROCESSING SETTINGS %%%%

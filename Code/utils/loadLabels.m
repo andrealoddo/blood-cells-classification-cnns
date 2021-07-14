@@ -1,4 +1,4 @@
-function [trainLabels, testLabels, trainSplit] = loadLabels( datasetName, labelsPath, splits )
+function [trainLabels, testLabels, trainSplit, stringSplit, idx] = loadLabels( datasetName, labelsPath, splits, sp)
 
     if strcmp(datasetName, 'CNMC')
         labelDestination = fullfile( labelsPath, strcat(datasetName, '___', splits{2}) );

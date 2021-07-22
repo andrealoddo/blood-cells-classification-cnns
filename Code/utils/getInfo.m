@@ -15,8 +15,7 @@ function [datasets,datasetsname,splits,training_splits,...
     splits = {{'img','img_tCrop','img_wrongCrop','img_wrongCrop2'},{'img','img_tCrop','img_wrongCrop','img_wrongCrop2'}};
     splits = {{'img_mask','img_tMask','img_wrongMask','img_wrongMask2','img_tWrongMask','img_tWrongMask2'}, ...
         {'img_mask','img_tMask','img_wrongMask','img_wrongMask2','img_tWrongMask','img_tWrongMask2'}};
-    training_splits = splits{1}(1:2);
-    
+    training_splits = {{'img_mask','img_tMask'}, {'img_mask','img_tMask'}};
     
     %%%% DESCRIPTORS SETTINGS %%%%
     
@@ -97,5 +96,15 @@ function [datasets,datasetsname,splits,training_splits,...
     selection = [100];
     
     classifier = {'kNN','SVMRbf','RF'};
+    
+    
+    
+    %%%% TEST da rimuovere
+    descriptors_sets = {'FTalexfc7CNN'};
+    descriptors_sets_names = {'FTalexfc7CNN'};
+    classifier = {'kNN','RF'};
+    postpro = ["none"];
+    selection = [20];
+    
 end
 

@@ -19,4 +19,3 @@ function [trainLabels, testLabels, trainSplit, stringSplit, idx] = loadLabels( d
     trainLabels = labels;
 
 end
-

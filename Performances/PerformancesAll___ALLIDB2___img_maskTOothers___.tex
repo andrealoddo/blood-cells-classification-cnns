@@ -1,0 +1,47 @@
+\documentclass[12pt,italian]{article}
+\usepackage{graphicx}
+\usepackage{longtable}
+\parskip 0.1in
+\oddsidemargin -1in
+\evensidemargin -1in
+\topmargin -0.5in
+\textwidth 6.8in
+\textheight 9.9in
+\usepackage{fancyhdr}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{amsmath}
+\begin{document}
+\begin{tiny}
+\begin{longtable}{lccccccccccccccccccccccccccccccc}
+\toprule
+\multicolumn{31}{c}{Dataset=ALLIDB2 selection=\% prepro= none postpro= none, gl= 256} \\ 
+\toprule
+Classifier & Descriptor & \multicolumn{30}{c}{Target set} \\ 
+& \multicolumn{5}{c}{img_mask} & \multicolumn{5}{c}{img_tMask} & \multicolumn{5}{c}{img_wrongMask} & \multicolumn{5}{c}{img_wrongMask2} & \multicolumn{5}{c}{img_tWrongMask} & \multicolumn{5}{c}{img_tWrongMask2} \\ 
+& A & P & R & S & F1 & A & P & R & S & F1 & A & P & R & S & F1 & A & P & R & S & F1 & A & P & R & S & F1 & A & P & R & S & F1 \\ 
+\midrule
+\multirow{}{*}{kNN}& FTalexfc7CNN & 76.9 & 71.4 & 89.7 & 64.1 & 79.5 & 51.3 & 50.7 & 89.7 & 12.8 & 64.8 & 71.8 & 65.5 & 92.3 & 51.3 & 76.6 & 69.2 & 62.7 & 94.9 & 43.6 & 75.5 & 50.0 & 50.0 & 94.9 &  5.1 & 65.5 & 51.3 & 50.7 & 92.3 & 10.3 & 65.5 \\ 
+\hline
+& AVG & 76.9 & 71.4 & 89.7 & 64.1 & 79.5 & 51.3 & 50.7 & 89.7 & 12.8 & 64.8 & 71.8 & 65.5 & 92.3 & 51.3 & 76.6 & 69.2 & 62.7 & 94.9 & 43.6 & 75.5 & 50.0 & 50.0 & 94.9 &  5.1 & 65.5 & 51.3 & 50.7 & 92.3 & 10.3 & 65.5 \\ 
+\hline
+\bottomrule
+\end{longtable} 
+
+ \pagebreak 
+\begin{longtable}{lccccccccccccccccccccccccccccccc}
+\toprule
+\multicolumn{31}{c}{Dataset=ALLIDB2 selection=\% prepro= none postpro= none, gl= 256} \\ 
+\toprule
+Classifier & Descriptor & \multicolumn{30}{c}{Target set} \\ 
+& \multicolumn{5}{c}{img_mask} & \multicolumn{5}{c}{img_tMask} & \multicolumn{5}{c}{img_wrongMask} & \multicolumn{5}{c}{img_wrongMask2} & \multicolumn{5}{c}{img_tWrongMask} & \multicolumn{5}{c}{img_tWrongMask2} \\ 
+& A & P & R & S & F1 & A & P & R & S & F1 & A & P & R & S & F1 & A & P & R & S & F1 & A & P & R & S & F1 & A & P & R & S & F1 \\ 
+\midrule
+\multirow{}{*}{RF}& FTalexfc7CNN & 69.2 & 61.9 & 100.0 & 38.5 & 76.5 & 50.0 & 50.0 & 100.0 &  0.0 & 66.7 & 66.7 & 60.0 & 100.0 & 33.3 & 75.0 & 59.0 & 54.9 & 100.0 & 17.9 & 70.9 & 50.0 & 50.0 & 100.0 &  0.0 & 66.7 & 50.0 & 50.0 & 100.0 &  0.0 & 66.7 \\ 
+\hline
+& AVG & 69.2 & 61.9 & 100.0 & 38.5 & 76.5 & 50.0 & 50.0 & 100.0 &  0.0 & 66.7 & 66.7 & 60.0 & 100.0 & 33.3 & 75.0 & 59.0 & 54.9 & 100.0 & 17.9 & 70.9 & 50.0 & 50.0 & 100.0 &  0.0 & 66.7 & 50.0 & 50.0 & 100.0 &  0.0 & 66.7 \\ 
+\hline
+\bottomrule
+\end{longtable} 
+
+ \pagebreak 

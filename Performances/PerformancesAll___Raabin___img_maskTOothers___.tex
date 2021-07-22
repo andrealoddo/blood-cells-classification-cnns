@@ -1,0 +1,47 @@
+\documentclass[12pt,italian]{article}
+\usepackage{graphicx}
+\usepackage{longtable}
+\parskip 0.1in
+\oddsidemargin -1in
+\evensidemargin -1in
+\topmargin -0.5in
+\textwidth 6.8in
+\textheight 9.9in
+\usepackage{fancyhdr}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{amsmath}
+\begin{document}
+\begin{tiny}
+\begin{longtable}{lccccccccccccccccccccccccccccccc}
+\toprule
+\multicolumn{31}{c}{Dataset=Raabin selection=\% prepro= none postpro= none, gl= 256} \\ 
+\toprule
+Classifier & Descriptor & \multicolumn{30}{c}{Target set} \\ 
+& \multicolumn{5}{c}{img_mask} & \multicolumn{5}{c}{img_tMask} & \multicolumn{5}{c}{img_wrongMask} & \multicolumn{5}{c}{img_wrongMask2} & \multicolumn{5}{c}{img_tWrongMask} & \multicolumn{5}{c}{img_tWrongMask2} \\ 
+& A & P & R & S & F1 & A & P & R & S & F1 & A & P & R & S & F1 & A & P & R & S & F1 & A & P & R & S & F1 & A & P & R & S & F1 \\ 
+\midrule
+\multirow{}{*}{kNN}& FTalexfc7CNN & 97.8 & 94.6 & 94.5 & 98.5 & 94.4 & 78.5 & 55.0 & 47.7 & 86.3 & 37.8 & 97.5 & 93.9 & 93.9 & 98.4 & 93.9 & 97.6 & 94.4 & 94.2 & 98.5 & 94.2 & 78.3 & 53.6 & 47.1 & 86.2 & 36.4 & 78.5 & 55.4 & 47.7 & 86.2 & 39.5 \\ 
+\hline
+& AVG & 97.8 & 94.6 & 94.5 & 98.5 & 94.4 & 78.5 & 55.0 & 47.7 & 86.3 & 37.8 & 97.5 & 93.9 & 93.9 & 98.4 & 93.9 & 97.6 & 94.4 & 94.2 & 98.5 & 94.2 & 78.3 & 53.6 & 47.1 & 86.2 & 36.4 & 78.5 & 55.4 & 47.7 & 86.2 & 39.5 \\ 
+\hline
+\bottomrule
+\end{longtable} 
+
+ \pagebreak 
+\begin{longtable}{lccccccccccccccccccccccccccccccc}
+\toprule
+\multicolumn{31}{c}{Dataset=Raabin selection=\% prepro= none postpro= none, gl= 256} \\ 
+\toprule
+Classifier & Descriptor & \multicolumn{30}{c}{Target set} \\ 
+& \multicolumn{5}{c}{img_mask} & \multicolumn{5}{c}{img_tMask} & \multicolumn{5}{c}{img_wrongMask} & \multicolumn{5}{c}{img_wrongMask2} & \multicolumn{5}{c}{img_tWrongMask} & \multicolumn{5}{c}{img_tWrongMask2} \\ 
+& A & P & R & S & F1 & A & P & R & S & F1 & A & P & R & S & F1 & A & P & R & S & F1 & A & P & R & S & F1 & A & P & R & S & F1 \\ 
+\midrule
+\multirow{}{*}{RF}& FTalexfc7CNN & 98.0 & 95.2 & 95.1 & 98.7 & 95.1 & 79.2 & 56.3 & 49.7 & 86.8 & 40.5 & 97.3 & 93.5 & 93.3 & 98.3 & 93.3 & 98.0 & 95.3 & 95.1 & 98.7 & 95.1 & 79.4 & 55.8 & 50.0 & 86.9 & 40.2 & 79.8 & 57.4 & 51.2 & 87.1 & 43.9 \\ 
+\hline
+& AVG & 98.0 & 95.2 & 95.1 & 98.7 & 95.1 & 79.2 & 56.3 & 49.7 & 86.8 & 40.5 & 97.3 & 93.5 & 93.3 & 98.3 & 93.3 & 98.0 & 95.3 & 95.1 & 98.7 & 95.1 & 79.4 & 55.8 & 50.0 & 86.9 & 40.2 & 79.8 & 57.4 & 51.2 & 87.1 & 43.9 \\ 
+\hline
+\bottomrule
+\end{longtable} 
+
+ \pagebreak 

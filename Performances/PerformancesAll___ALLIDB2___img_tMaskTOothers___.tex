@@ -1,0 +1,49 @@
+\documentclass[12pt,italian]{article}
+\usepackage{graphicx}
+\usepackage{longtable}
+\parskip 0.1in
+\oddsidemargin -1in
+\evensidemargin -1in
+\topmargin -0.5in
+\textwidth 6.8in
+\textheight 9.9in
+\usepackage{fancyhdr}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{amsmath}
+\begin{document}
+\begin{tiny}
+\begin{longtable}{lccccccccccccccccccccccccccccccc}
+\toprule
+\multicolumn{31}{c}{Dataset=ALLIDB2 selection=\% prepro= none postpro= none, gl= 256} \\ 
+\toprule
+Classifier & Descriptor & \multicolumn{30}{c}{Target set} \\ 
+& \multicolumn{5}{c}{img_mask} & \multicolumn{5}{c}{img_tMask} & \multicolumn{5}{c}{img_wrongMask} & \multicolumn{5}{c}{img_wrongMask2} & \multicolumn{5}{c}{img_tWrongMask} & \multicolumn{5}{c}{img_tWrongMask2} \\ 
+& A & P & R & S & F1 & A & P & R & S & F1 & A & P & R & S & F1 & A & P & R & S & F1 & A & P & R & S & F1 & A & P & R & S & F1 \\ 
+\midrule
+\multirow{}{*}{kNN}& FTalexfc7CNN & 50.0 &  0.0 &  0.0 & 100.0 &  0.0 & 69.2 & 64.7 & 84.6 & 53.8 & 73.3 & 50.0 &  0.0 &  0.0 & 100.0 &  0.0 & 50.0 &  0.0 &  0.0 & 100.0 &  0.0 & 50.0 &  0.0 &  0.0 & 100.0 &  0.0 & 50.0 &  0.0 &  0.0 & 100.0 &  0.0 \\ 
+\hline
+& AVG & 50.0 &  0.0 &  0.0 & 100.0 &  0.0 & 69.2 & 64.7 & 84.6 & 53.8 & 73.3 & 50.0 &  0.0 &  0.0 & 100.0 &  0.0 & 50.0 &  0.0 &  0.0 & 100.0 &  0.0 & 50.0 &  0.0 &  0.0 & 100.0 &  0.0 & 50.0 &  0.0 &  0.0 & 100.0 &  0.0 \\ 
+\hline
+\bottomrule
+\end{longtable} 
+
+ \pagebreak 
+\begin{longtable}{lccccccccccccccccccccccccccccccc}
+\toprule
+\multicolumn{31}{c}{Dataset=ALLIDB2 selection=\% prepro= none postpro= none, gl= 256} \\ 
+\toprule
+Classifier & Descriptor & \multicolumn{30}{c}{Target set} \\ 
+& \multicolumn{5}{c}{img_mask} & \multicolumn{5}{c}{img_tMask} & \multicolumn{5}{c}{img_wrongMask} & \multicolumn{5}{c}{img_wrongMask2} & \multicolumn{5}{c}{img_tWrongMask} & \multicolumn{5}{c}{img_tWrongMask2} \\ 
+& A & P & R & S & F1 & A & P & R & S & F1 & A & P & R & S & F1 & A & P & R & S & F1 & A & P & R & S & F1 & A & P & R & S & F1 \\ 
+\midrule
+\multirow{}{*}{RF}& FTalexfc7CNN & 50.0 & 50.0 & 100.0 &  0.0 & 66.7 & 70.5 & 64.8 & 89.7 & 51.3 & 75.3 & 50.0 & 50.0 & 100.0 &  0.0 & 66.7 & 50.0 & 50.0 & 100.0 &  0.0 & 66.7 & 50.0 & 50.0 & 100.0 &  0.0 & 66.7 & 50.0 & 50.0 & 100.0 &  0.0 & 66.7 \\ 
+\hline
+& AVG & 50.0 & 50.0 & 100.0 &  0.0 & 66.7 & 70.5 & 64.8 & 89.7 & 51.3 & 75.3 & 50.0 & 50.0 & 100.0 &  0.0 & 66.7 & 50.0 & 50.0 & 100.0 &  0.0 & 66.7 & 50.0 & 50.0 & 100.0 &  0.0 & 66.7 & 50.0 & 50.0 & 100.0 &  0.0 & 66.7 \\ 
+\hline
+\bottomrule
+\end{longtable} 
+
+ \pagebreak 
+\end{tiny} 
+ \end{document}

@@ -100,11 +100,11 @@ function [datasets,datasetsname,splits,training_splits,...
     
     
     %%%% TEST da rimuovere
-    descriptors_sets = {'FTalexfc7CNN'};
-    descriptors_sets_names = {'FTalexfc7CNN'};
-    classifier = {'kNN','RF'};
-    postpro = ["none"];
-    selection = [20];
+    %descriptors_sets = {'FTalexfc7CNN'};
+    %descriptors_sets_names = {'FTalexfc7CNN'};
+    %classifier = {'kNN','RF'};
+    %postpro = ["none"];
+    %selection = [20];
     
 end
 

@@ -1,1 +1,1 @@
-nohup matlab -nodisplay -nosplash -nodesktop -batch trainMultipleCNNs > nohup/nohup.out < /dev/null &
+nohup matlab -nodisplay -nosplash -nodesktop -batch SCRIPT3 > ../nohup/nohup.out < /dev/null &

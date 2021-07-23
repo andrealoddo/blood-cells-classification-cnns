@@ -96,7 +96,11 @@ function computePerformancesCrossExec( datasets, datasetsname, training_splits, 
                                                     load(destinationModel, 'model');
                                                     
                                                     tic;
-                                                    [~,wAVG] = Classification([], [], DBTest(idx{2},:), testLabels(idx{2}), classifier, model);
+                                                    if selected_all
+                                                        [~,wAVG] = Classification([], [], DBTest(idx{2},selected_all), testLabels(idx{2}), classifier, model);
+                                                    else
+                                                        [~,wAVG] = Classification([], [], DBTest(idx{2},:), testLabels(idx{2}), classifier, model);
+                                                    end
                                                     
                                                     timeClassification.([erase( descriptors_sets{dsc_set}, '-' )  '___',...
                                                     string_selection,...

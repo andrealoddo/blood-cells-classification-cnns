@@ -9,7 +9,13 @@ if ~isempty(DBTest)
     end
 end
 
-size(DBTrain)
+[r1, c1]=size(DBTrain);
+disp(['Original Train set size: ' num2str(r1) 'x' num2str(c1)])
+if ~isempty(DBTest)
+    [r2, c2]=size(DBTest);
+    disp(['Original Test set size: ' num2str(r2) 'x' num2str(c2)])
+end
+
 if nargin < 8
     fold = 10;
 end
@@ -19,8 +25,12 @@ end
 
 if ~isempty(selected)
     DBTrain = DBTrain(:,selected);  
+    [r1, c1]=size(DBTrain);
+    disp(['Train set size after selection: ' num2str(r1) 'x' num2str(c1)])
     if ~isempty(DBTest)
         DBTest = DBTest(:,selected);  
+        [r2, c2]=size(DBTest);
+        disp(['Test set size after selection: ' num2str(r2) 'x' num2str(c2)])
     end
 end
 
@@ -54,6 +64,9 @@ end
 
 function [DBTrain, TrainLabels] = sampling(DBTrain, TrainLabels, postpro)
 
+
+[r1, c1]=size(DBTrain);
+disp(['Fold set size before sampling: ' num2str(r1) 'x' num2str(c1)])
 if contains(postpro,'undersample') %undersample 
     index = underSampling(TrainLabels);
     DBTrain = DBTrain(index,:);
@@ -63,4 +76,5 @@ elseif contains(postpro,'oversample') %undersample
     DBTrain = DBTrain(index,:);
     TrainLabels = TrainLabels(index,:);
 end
-size(DBTrain)
+[r1, c1]=size(DBTrain);
+disp(['Fold set size after sampling: ' num2str(r1) 'x' num2str(c1)])

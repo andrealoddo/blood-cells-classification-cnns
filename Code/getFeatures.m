@@ -1,8 +1,6 @@
-function [DBTrain, DBTest] = getFeatures( datasetsname, featsPath, training_split, split, ...
+function [DBTrain_one, DBTest_one] = getFeatures( datasetsname, featsPath, training_split, split, ...
     descriptor, graylevel, prepro, trainSplit, computeCNNFeaturesTrained, sp )
 
-    DBTrain = [];
-    DBTest  = [];
     if strcmp( datasetsname, 'CNMC' )
         DBTest_one = load( fullfile( featsPath, ...
             strcat( datasetsname, '___', ...
@@ -10,7 +8,9 @@ function [DBTrain, DBTest] = getFeatures( datasetsname, featsPath, training_spli
             descriptor, '___',...
             num2str( graylevel ), '___',...
             prepro{pp}, '.mat') ) );
-        DBTest = [DBTest DBTest_one.features];
+        DBTest_one = DBTest_one.features;
+    else
+        DBTest_one  = [];
     end
     
     if( contains( descriptor, 'FT' ) && computeCNNFeaturesTrained == 1 ) % fine-tuned models features
@@ -28,8 +28,6 @@ function [DBTrain, DBTest] = getFeatures( datasetsname, featsPath, training_spli
             descriptor, '___',...
             num2str(graylevel), '___',...
             prepro, '.mat') ) );
-    end
-    
-    DBTrain = [DBTrain DBTrain_one.features];
-    
+    end    
+    DBTrain_one = DBTrain_one.features;
 end

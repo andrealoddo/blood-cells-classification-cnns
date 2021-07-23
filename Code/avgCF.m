@@ -9,14 +9,15 @@ function [TP,TN,FP,FN] = avgCF(confusion)
     FP = 0;
     FN = 0;
     TN = 0;
-    disp("conf matrix size")
-    len = size(confusion, 1)
-    
+    len = size(confusion, 1);
+    disp(['conf matrix size: ' num2str(len)])
+        
     if len == 2 %nel caso di problema binario prendiamo solo la prima classe
-        disp("ciao")
+        disp('binary problem')
         len = 1;
     end
     for k = 1:len
+        disp('multi-class problem')
         % True positives                           % | x o o |
         tp_value = confusion(k,k);                 % | o o o |
         TP = TP + tp_value;                        % | o o o |

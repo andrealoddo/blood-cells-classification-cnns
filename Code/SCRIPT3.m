@@ -31,7 +31,7 @@ if computeFeatures == 1
     
     computeFeaturesExec( datasets, datasetsname, training_splits, splits, ...
         labelsPath, descriptors_sets, perfPath, sourcePath, modelsPath, featsPath,...
-        computeCNNFeaturesTrained, aug, graylevel, prepro, colour, cl );
+        computeCNNFeaturesTrained, aug, graylevel, prepro, colour, cl, featselector );
     
 end
 

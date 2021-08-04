@@ -3,9 +3,9 @@ computeFeatures = 0;
 computeCNNFeaturesTrained = 1; % reti addestrate, modelli custom
 savePerfFeaturesTrained = 0;   % per filename tabelle performance
 computePerformances = 1;
-computePerformancesCross = 0;
+computePerformancesCross = 1;
 saveTables = 0;
-saveTablesCross = 0;
+saveTablesCross = 1;
 saveTablesALL = 0;
 
 warning off;

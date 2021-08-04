@@ -25,7 +25,7 @@ function computePerformancesCrossExec( datasets, datasetsname, training_splits, 
                             for dsc = 1:numel(descriptors)
                                 [DBTest_one, ~] = getFeatures( datasetsname{dt}, featsPath, ...
                                     training_splits{dt}{sourcesp}, splits{dt}, descriptors{dsc}, graylevel(gl), ...
-                                    prepro{pp}, trainSplit, computeCNNFeaturesTrained, sp ); 
+                                    prepro{pp}, trainSplit, computeCNNFeaturesTrained, targetsp ); 
                                 DBTest = [DBTest DBTest_one];
                             end
                             

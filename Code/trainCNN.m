@@ -47,9 +47,9 @@ function [trainedNet, chart] = trainCNN(net, netName, netCheckPath, modelPath,..
     imdsTest.ReadFcn  = @(filename)resizeIm(filename, inputSize);
 
     % Training options
-    miniBatchSize = 8;
+    miniBatchSize = 4;
     maxEpochs = 50;
-    valFrequency = max(floor(numel(imdsTest.Files)/miniBatchSize)*10,1);
+    valFrequency = max(floor(numel(imdsTrain.Files)/miniBatchSize)*10,1);
     
     % Net name
 	netName = strcat( netName, '__EP', num2str(maxEpochs), '__MBS', num2str(miniBatchSize), '__AUG', num2str(AUG), '.mat' );
@@ -70,7 +70,7 @@ function [trainedNet, chart] = trainCNN(net, netName, netCheckPath, modelPath,..
                 'ValidationFrequency', valFrequency, ...
                 'Verbose', true, ...
                 'Plots', 'training-progress', ...
-                'OutputFcn', @(info)stopIfAccuracyNotImproving( info, 5 ));
+                'OutputFcn', @(info)stopIfAccuracyNotImproving( info, 10 ));
         elseif( saveCheckPoints == 1 )
             options = trainingOptions('adam', ...
                 'MiniBatchSize', miniBatchSize, ...
@@ -86,7 +86,7 @@ function [trainedNet, chart] = trainCNN(net, netName, netCheckPath, modelPath,..
                 'Verbose', true, ...
                 'Plots', 'training-progress', ...
                 'CheckpointPath', netCheckPath, ...
-                'OutputFcn', @(info)stopIfAccuracyNotImproving( info, 5 ));
+                'OutputFcn', @(info)stopIfAccuracyNotImproving( info, 10 ));
         end
 
         % -------------------    TRAIN NETWORK   ------------------------------

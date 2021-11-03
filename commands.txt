@@ -1,1 +1,2 @@
 nohup matlab -nodisplay -nosplash -nodesktop -batch SCRIPT3 > ../nohup/nohup.out < /dev/null &
+nohup matlab -nodisplay -nosplash -nodesktop -batch SCRIPT_ALLIDB1 > ../nohup/nohupALLIDB1.out < /dev/null &

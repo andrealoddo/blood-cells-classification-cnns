@@ -1,0 +1,63 @@
+\documentclass[12pt,italian]{article}
+\usepackage{graphicx}
+\usepackage{longtable}
+\parskip 0.1in
+\oddsidemargin -1in
+\evensidemargin -1in
+\topmargin -0.5in
+\textwidth 6.8in
+\textheight 9.9in
+\usepackage{fancyhdr}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{amsmath}
+\begin{document}
+\begin{tiny}
+\begin{longtable}{lcccccccccccccccc}
+\toprule
+\multicolumn{16}{c}{Dataset=ALLIDB1 selection=\% prepro= none postpro= undersample, gl= 256} \\ 
+\toprule
+Descriptor & \multicolumn{15}{c}{Classifier} \\ 
+& \multicolumn{5}{c}{kNN} & \multicolumn{5}{c}{SVMRbf} & \multicolumn{5}{c}{RF} \\ 
+& A & P & R & S & F1 & A & P & R & S & F1 & A & P & R & S & F1 \\ 
+\midrule
+FTAlexNet & 100.0 & 100.0 & 100.0 &  0.0 & 100.0 & 100.0 & 100.0 & 100.0 &  0.0 & 100.0 & 100.0 & 100.0 & 100.0 &  0.0 & 100.0 \\ 
+FTVGGNet-19 & 100.0 & 100.0 & 100.0 &  0.0 & 100.0 & 100.0 & 100.0 & 100.0 &  0.0 & 100.0 & 100.0 & 100.0 & 100.0 &  0.0 & 100.0 \\ 
+FTResNet-50 & 100.0 & 100.0 & 100.0 &  0.0 & 100.0 & 100.0 & 100.0 & 100.0 &  0.0 & 100.0 & 100.0 & 100.0 & 100.0 &  0.0 & 100.0 \\ 
+FTGoogleNet & 100.0 & 100.0 & 100.0 &  0.0 & 100.0 & 100.0 & 100.0 & 100.0 &  0.0 & 100.0 & 100.0 & 100.0 & 100.0 &  0.0 & 100.0 \\ 
+FTResNet-18 & 100.0 & 100.0 & 100.0 &  0.0 & 100.0 & 100.0 & 100.0 & 100.0 &  0.0 & 100.0 & 100.0 & 100.0 & 100.0 &  0.0 & 100.0 \\ 
+FTResNet-101 & 100.0 & 100.0 & 100.0 &  0.0 & 100.0 & 100.0 & 100.0 & 100.0 &  0.0 & 100.0 & 100.0 & 100.0 & 100.0 &  0.0 & 100.0 \\ 
+FTVGGNet-16 & 100.0 & 100.0 & 100.0 &  0.0 & 100.0 & 100.0 & 100.0 & 100.0 &  0.0 & 100.0 & 100.0 & 100.0 & 100.0 &  0.0 & 100.0 \\ 
+FTInceptionv3 & 100.0 & 100.0 & 100.0 &  0.0 & 100.0 & 100.0 & 100.0 & 100.0 &  0.0 & 100.0 & 100.0 & 100.0 & 100.0 &  0.0 & 100.0 \\ 
+\hline
+AVG & 100.0 & 100.0 & 100.0 &  0.0 & 100.0 & 100.0 & 100.0 & 100.0 &  0.0 & 100.0 & 100.0 & 100.0 & 100.0 &  0.0 & 100.0 \\ 
+\hline
+\bottomrule
+\end{longtable} 
+
+ \pagebreak 
+\begin{longtable}{lcccccccccccccccc}
+\toprule
+\multicolumn{16}{c}{Dataset=ALLIDB1 selection=\% prepro= none postpro= none, gl= 256} \\ 
+\toprule
+Descriptor & \multicolumn{15}{c}{Classifier} \\ 
+& \multicolumn{5}{c}{kNN} & \multicolumn{5}{c}{SVMRbf} & \multicolumn{5}{c}{RF} \\ 
+& A & P & R & S & F1 & A & P & R & S & F1 & A & P & R & S & F1 \\ 
+\midrule
+FTAlexNet & 100.0 & 100.0 & 100.0 &  0.0 & 100.0 & 100.0 & 100.0 & 100.0 &  0.0 & 100.0 & 100.0 & 100.0 & 100.0 &  0.0 & 100.0 \\ 
+FTVGGNet-19 & 100.0 & 100.0 & 100.0 &  0.0 & 100.0 & 100.0 & 100.0 & 100.0 &  0.0 & 100.0 & 100.0 & 100.0 & 100.0 &  0.0 & 100.0 \\ 
+FTResNet-50 & 100.0 & 100.0 & 100.0 &  0.0 & 100.0 & 100.0 & 100.0 & 100.0 &  0.0 & 100.0 & 100.0 & 100.0 & 100.0 &  0.0 & 100.0 \\ 
+FTGoogleNet & 100.0 & 100.0 & 100.0 &  0.0 & 100.0 & 100.0 & 100.0 & 100.0 &  0.0 & 100.0 & 100.0 & 100.0 & 100.0 &  0.0 & 100.0 \\ 
+FTResNet-18 & 100.0 & 100.0 & 100.0 &  0.0 & 100.0 & 100.0 & 100.0 & 100.0 &  0.0 & 100.0 & 100.0 & 100.0 & 100.0 &  0.0 & 100.0 \\ 
+FTResNet-101 & 100.0 & 100.0 & 100.0 &  0.0 & 100.0 & 100.0 & 100.0 & 100.0 &  0.0 & 100.0 & 100.0 & 100.0 & 100.0 &  0.0 & 100.0 \\ 
+FTVGGNet-16 & 100.0 & 100.0 & 100.0 &  0.0 & 100.0 & 100.0 & 100.0 & 100.0 &  0.0 & 100.0 & 100.0 & 100.0 & 100.0 &  0.0 & 100.0 \\ 
+FTInceptionv3 & 100.0 & 100.0 & 100.0 &  0.0 & 100.0 & 100.0 & 100.0 & 100.0 &  0.0 & 100.0 & 100.0 & 100.0 & 100.0 &  0.0 & 100.0 \\ 
+\hline
+AVG & 100.0 & 100.0 & 100.0 &  0.0 & 100.0 & 100.0 & 100.0 & 100.0 &  0.0 & 100.0 & 100.0 & 100.0 & 100.0 &  0.0 & 100.0 \\ 
+\hline
+\bottomrule
+\end{longtable} 
+
+ \pagebreak 
+\end{tiny} 
+ \end{document}

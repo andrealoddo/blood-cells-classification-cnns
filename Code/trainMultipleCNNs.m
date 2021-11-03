@@ -19,6 +19,8 @@ function trainMultipleCNNs( rootPath, modelsPath, confsPath, datasets, training_
             modelPath = fullfile(modelsPath, datasets{ds}, strcat('aug', num2str(aug)), training_splits{bb});
             confPath = fullfile(confsPath, datasets{ds}, strcat('aug', num2str(aug)), training_splits{bb});
             
+            testPath = fullfile(rootPath, datasets{ds}, 'imgSyntPartial');
+            
             %perfFilename = ['results__', training_splits{bb}, '__aug__', num2str(aug), '.tex'];
             
             if( isfolder( modelPath ) == 0 )
@@ -35,7 +37,9 @@ function trainMultipleCNNs( rootPath, modelsPath, confsPath, datasets, training_
               [imdsTrain, imdsValid, imdsTest] = augmentImages( trainingPath, 0.6, 0.1, 0.3, training_splits{bb});
             elseif( aug == 0 )
               imds = imageDatastore( trainingPath, 'IncludeSubfolders', true, 'LabelSource', 'foldernames' );
-              [imdsTrain, imdsValid, imdsTest] = splitEachLabel( imds, 0.6, 0.1, 0.3 );
+              %[imdsTrain, imdsValid, imdsTest] = splitEachLabel( imds, 0.7, 0.2, 0.1 );
+              [imdsTrain, imdsValid] = splitEachLabel( imds, 0.775, 0.225 );
+              imdsTest = imageDatastore( testPath, 'IncludeSubfolders', true, 'LabelSource', 'foldernames' );
             end
 
             % Check label frequency for imbalance

@@ -4,21 +4,22 @@ function [datasets,datasetsname,splits,training_splits,...
     selection, classifier] = getInfo()
 
     %%%% DATASETS SETTINGS %%%%
-    
+
     datasets       = {'C-NMC_Leukemia', 'ALL_IDB/ALL_IDB2'};
     datasetsname   = {'CNMC', 'ALLIDB2'};
     splits = {{'C-NMC_training_data','C-NMC_test_prelim_phase_data'},...
               {'img_nmask'}};
-          
+
     datasets       = {'ALL_IDB/ALL_IDB2','Raabin'};
     datasetsname   = {'ALLIDB2','Raabin'};
     splits = {{'img','img_tCrop','img_wrongCrop','img_wrongCrop2'},{'img','img_tCrop','img_wrongCrop','img_wrongCrop2'}};
-    splits = {{'img_mask','img_tMask','img_wrongMask','img_wrongMask2','img_tWrongMask','img_tWrongMask2'}, ...
-        {'img_mask','img_tMask','img_wrongMask','img_wrongMask2','img_tWrongMask','img_tWrongMask2'}};
-    training_splits = {{'img_mask','img_tMask'}, {'img_mask','img_tMask'}};
-    
+    %splits = {{'img_mask','img_tMask','img_wrongMask','img_wrongMask2','img_tWrongMask','img_tWrongMask2'}, ...
+    %    {'img_mask','img_tMask','img_wrongMask','img_wrongMask2','img_tWrongMask','img_tWrongMask2'}};
+    training_splits = {{'img','img_tCrop'}, {'img','img_tCrop'}};
+    %training_splits = {{'img_mask','img_tMask'}, {'img_mask','img_tMask'}};
+
     %%%% DESCRIPTORS SETTINGS %%%%
-    
+
     descriptors_sets = {'HM','LMGS_5','CHdue_5','CH_5','ZM_5_5',...
                         'HARri','LBP18','LBP212','LBP216','CLBP18','CLBP212','CLBP216',...
                         'hist','shape',...
@@ -34,9 +35,9 @@ function [datasets,datasetsname,splits,training_splits,...
                         'HM-CHdue_5-HARri','HM-CH_5-LBP18',...
                         'LMGS_5-CHdue_5-ZM_5_5','LMGS_5-CH_5-ZM_5_5','LMGS_5-ZM_5_5-HARri','LMGS_5-ZM_5_5-LBP18',...
                         'LMGS_5-CHdue_5-HARri','LMGS_5-CH_5-LBP18',...
-                        'HM-LMGS_5-CHdue_5-ZM_5_5','HM-LMGS_5-CH_5-ZM_5_5',... 
-                        'LMGS_5-CHdue_5-ZM_5_5','LMGS_5-CH_5-ZM_5_5'};  
-                    
+                        'HM-LMGS_5-CHdue_5-ZM_5_5','HM-LMGS_5-CH_5-ZM_5_5',...
+                        'LMGS_5-CHdue_5-ZM_5_5','LMGS_5-CH_5-ZM_5_5'};
+
     descriptors_sets = {'HM','LMGS_5','CHdue_5','CH_5','ZM_5_5',...
                 'HARri','LBP18','LBP212','LBP216','CLBP18','CLBP212','CLBP216',...
                 'hist','cgram',...
@@ -47,19 +48,19 @@ function [datasets,datasetsname,splits,training_splits,...
                 'HARri','LBP18',...
                 'hist','cgram'...
                 'haar','gabor'};
-        
+
     descriptors_sets_names = {'Legendre','Zernike',...
                 'HARri','LBP18',...
                 'Histogram','Correlogram'...
                 'Haar wavelet','Gabor wavelet',...
                 'AlexNet','VGGNet-19','ResNet-50','GoogleNet'};
-            
+
     descriptors_sets = {'FTalexfc7CNN','FTVGG19CNN','FTresnet50CNN','FTgoogleCNN', ...
         'FTVGG16CNN','FTresnet18CNN','FTresnet101CNN','FTinceptionv3CNN'};
-        
+
     descriptors_sets_names = {'AlexNet','VGGNet-19','ResNet-50','GoogleNet', ...
         'ResNet-18','ResNet-101','VGGNet-16','Inceptionv3'};
-    
+
     descriptors_sets = {'LMGS_5','ZM_5_5',...
             'HARri','LBP18',...
             'hist','cgram'...
@@ -73,38 +74,44 @@ function [datasets,datasetsname,splits,training_splits,...
             'Haar wavelet','Gabor wavelet',...
             'AlexNet','VGGNet-19','ResNet-50','GoogleNet', ...
             'ResNet-18','ResNet-101','VGGNet-16','Inceptionv3'};
-        
+
     %%%% FURTHER SETTINGS %%%%
-         
+
     %%%% PRE/POST PROCESSING SETTINGS %%%%
-    
+
     aug = 0;    % 0: no augmentation, 1: augmentation
-    
+
     graylevel = [256];
     colour = {'gray','RGB', 'HSV', 'LAB'};
     cl = 1;
-    
+
     prepro = ["none"];
-    
+
     postpro = ["none","nfeat","undersample","oversample","nfeat-undersample"];
     postpro = ["undersample"];
     postpro = ["undersample", "none"];
-    
+
     featselector = {'relieff'};
-    
+
     %selection = [20,60,100];
     selection = [100];
-    
-    classifier = {'kNN','SVMRbf','RF'};
-    
-    
-    
-    %%%% TEST da rimuovere
-    %descriptors_sets = {'FTalexfc7CNN'};
-    %descriptors_sets_names = {'FTalexfc7CNN'};
-    %classifier = {'kNN','RF'};
-    %postpro = ["none"];
-    %selection = [20];
-    
-end
 
+    classifier = {'kNN','SVMRbf','RF'};
+
+
+
+    %%%% TEST
+    descriptors_sets = {'FTalexfc7CNN','FTVGG19CNN','FTresnet50CNN','FTgoogleCNN', ...
+        'FTVGG16CNN','FTresnet18CNN','FTresnet101CNN','FTinceptionv3CNN'};
+
+    descriptors_sets_names = {'FTAlexNet','FTVGGNet-19','FTResNet-50','FTGoogleNet', ...
+        'FTResNet-18','FTResNet-101','FTVGGNet-16','FTInceptionv3'};
+
+    datasets       = {'ALL_IDB1'};
+    datasetsname   = {'ALLIDB1'};
+    %splits = {{'imgSynt1', 'imgSynt2', 'imgSynt3', 'imgSynt4', 'imgSynt5', 'imgSynt6', 'imgSynt7', 'imgSynt8', 'imgSynt9', 'imgSynt10', ...
+    %            'imgSynt11', 'imgSynt12', 'imgSynt13', 'imgSynt14', 'imgSynt15', 'imgSynt16', 'imgSynt17', 'imgSynt18', 'imgSynt19', 'imgSynt20' }};
+    splits = {{'imgSyntTest2'}};
+    training_splits = {{'train'}};
+
+end

@@ -1,0 +1,50 @@
+loaded vgg16__EP50__MBS4__AUG0.mat neural network
+Computing/reading features: ALLIDB1 FTVGG16CNN 256 none
+Extracted features size: 445 4096--- DONE ---
+loaded vgg19__EP50__MBS4__AUG0.mat neural network
+Computing/reading features: ALLIDB1 FTVGG19CNN 256 none
+Extracted features size: 445 4096--- DONE ---
+loaded alexnet__EP50__MBS4__AUG0.mat neural network
+Computing/reading features: ALLIDB1 FTalexfc7CNN 256 none
+Extracted features size: 445 4096--- DONE ---
+loaded googlenet__EP50__MBS4__AUG0.mat neural network
+Computing/reading features: ALLIDB1 FTgoogleCNN 256 none
+Extracted features size: 445 2--- DONE ---
+loaded inceptionv3__EP50__MBS4__AUG0.mat neural network
+Computing/reading features: ALLIDB1 FTinceptionv3CNN 256 none
+Extracted features size: 445 2--- DONE ---
+loaded resnet101__EP50__MBS4__AUG0.mat neural network
+Computing/reading features: ALLIDB1 FTresnet101CNN 256 none
+Extracted features size: 445 2--- DONE ---
+loaded resnet18__EP50__MBS4__AUG0.mat neural network
+Computing/reading features: ALLIDB1 FTresnet18CNN 256 none
+Extracted features size: 445 2--- DONE ---
+loaded resnet50__EP50__MBS4__AUG0.mat neural network
+Computing/reading features: ALLIDB1 FTresnet50CNN 256 none
+Extracted features size: 445 2--- DONE ---
+loaded vgg16__EP50__MBS4__AUG0.mat neural network
+Computing/reading features: ALLIDB1 FTVGG16CNN 256 none
+Extracted features size: 6 4096--- DONE ---
+loaded vgg19__EP50__MBS4__AUG0.mat neural network
+Computing/reading features: ALLIDB1 FTVGG19CNN 256 none
+Extracted features size: 6 4096--- DONE ---
+loaded alexnet__EP50__MBS4__AUG0.mat neural network
+Computing/reading features: ALLIDB1 FTalexfc7CNN 256 none
+Extracted features size: 6 4096--- DONE ---
+loaded googlenet__EP50__MBS4__AUG0.mat neural network
+Computing/reading features: ALLIDB1 FTgoogleCNN 256 none
+Extracted features size: 6 2--- DONE ---
+loaded inceptionv3__EP50__MBS4__AUG0.mat neural network
+Computing/reading features: ALLIDB1 FTinceptionv3CNN 256 none
+Extracted features size: 6 2--- DONE ---
+loaded resnet101__EP50__MBS4__AUG0.mat neural network
+Computing/reading features: ALLIDB1 FTresnet101CNN 256 none
+Extracted features size: 6 2--- DONE ---
+loaded resnet18__EP50__MBS4__AUG0.mat neural network
+Computing/reading features: ALLIDB1 FTresnet18CNN 256 none
+Extracted features size: 6 2--- DONE ---
+loaded resnet50__EP50__MBS4__AUG0.mat neural network
+Computing/reading features: ALLIDB1 FTresnet50CNN 256 none
+Extracted features size: 6 2--- DONE ---
+saveTables
+saveTablesCross

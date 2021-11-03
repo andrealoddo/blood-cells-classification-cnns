@@ -1,6 +1,6 @@
 function computeFeaturesExec( datasets, datasetsname, training_splits, splits, ...
     labelsPath, descriptors_sets, perfPath, sourcePath, modelsPath, featsPath,...
-    computeCNNFeaturesTrained, aug, graylevel, prepro, colour, cl, featselector)
+    computeCNNFeaturesTrained, aug, graylevel, prepro, colour, cl, featselector, selection)
     
     descriptors = getUniqueDescriptorsList(descriptors_sets);
     
@@ -33,10 +33,17 @@ function computeFeaturesExec( datasets, datasetsname, training_splits, splits, .
                 labels = double(labels);
                 save(labelDestination, 'labels'); 
                 
-                if contains(datasetsname{dt} ,["ALLIDB2", "Raabin"])
+                if contains(datasetsname{dt}, ["ALLIDB2", "Raabin"])
                     idxDestination = fullfile(labelsPath, strcat( datasetsname{dt}, '___idx'));
-                    [training, testing] = splitEachLabel(imds,0.7);
-                    idx = {imgDatastore2DatasetIDX(imds, training); imgDatastore2DatasetIDX(imds, testing)};
+                    [training, testing] = splitEachLabel(imds,0.7); idx = {imgDatastore2DatasetIDX(imds, training); 
+                        imgDatastore2DatasetIDX(imds, testing)};
+                    save(idxDestination, 'idx'); 
+                end
+                
+                if contains(datasetsname{dt}, "ALLIDB1")
+                    idxDestination = fullfile(labelsPath, strcat( datasetsname{dt}, '___idx'));
+                    [training, validation] = splitEachLabel(imds, 0.775, 0.225); % split usato per il training da automatizzare
+                    idx = {imgDatastore2DatasetIDX(imds, training); imgDatastore2DatasetIDX(imds, validation)};
                     save(idxDestination, 'idx'); 
                 end
                 
@@ -112,7 +119,7 @@ function computeFeaturesExec( datasets, datasetsname, training_splits, splits, .
                                 for fs = 1:numel(featselector)
                                     for sel = 1:numel(selection)
                                         if selection(sel) < 100 && size(DBTrain, 2) > 10
-                                            %non c'è bisogno del if-else
+                                            %non c'ï¿½ bisogno del if-else
                                             %utilizzo la stringa trainSplitString
                                             %creata in precedenza
                                             featSelDestination = fullfile(featsPath, ...
@@ -141,4 +148,5 @@ function computeFeaturesExec( datasets, datasetsname, training_splits, splits, .
         end
     end 
 end
+
 
